@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Application from './src/Navigator/Application'
 
-const App = () => {
+const Verification = () => {
   return (
-  <Application />
+    <View>
+      <Text>Verification</Text>
+    </View>
   )
 }
 
-export default App
+export default Verification
 
 const styles = StyleSheet.create({})

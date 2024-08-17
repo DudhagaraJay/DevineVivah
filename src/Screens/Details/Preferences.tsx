@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Application from './src/Navigator/Application'
 
-const App = () => {
+const Preferences = () => {
   return (
-  <Application />
+    <View>
+      <Text>Preferences</Text>
+    </View>
   )
 }
 
-export default App
+export default Preferences
 
 const styles = StyleSheet.create({})

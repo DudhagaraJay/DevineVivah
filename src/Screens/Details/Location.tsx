@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Application from './src/Navigator/Application'
 
-const App = () => {
+const Location = () => {
   return (
-  <Application />
+    <View>
+      <Text>Location</Text>
+    </View>
   )
 }
 
-export default App
+export default Location
 
 const styles = StyleSheet.create({})
