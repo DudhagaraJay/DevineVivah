@@ -6,5 +6,6 @@ border: "#DEDEDE",
 black: "#000000",
 chatBg: "#8391A1",
 placeholderText: "#4A4B4E",
-darkBlack: "#1E232C"
+darkBlack: "#1E232C",
+boxBg: "#F6F6F6"
 }

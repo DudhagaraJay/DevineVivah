@@ -15,6 +15,12 @@ import FamilyDetails from '../Screens/Details/FamilyDetails';
 import Preferences from '../Screens/Details/Preferences';
 import Location from '../Screens/Details/Location';
 import Verification from '../Screens/Details/Verification';
+import SiblingDetails from '../Screens/Details/SiblingDetails';
+import HomeScreen from '../Screens/HomeScreen';
+import StoreScreen from '../Screens/StoreScreen';
+import ChatesScreen from '../Screens/ChatesScreen';
+import ProfileScreen from '../Screens/ProfileScreen';
+import MainNavigator from './BottomTab/Main';
 
 
 
@@ -34,9 +40,13 @@ const Application = () => {
         <Stack.Screen name="Preferences" component={Preferences} />
         <Stack.Screen name="Location" component={Location} />
         <Stack.Screen name="Verification" component={Verification} />
-
-
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="StoreScreen" component={StoreScreen} />
+        <Stack.Screen name="ChatesScreen" component={ChatesScreen} />
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Stack.Screen name="MainNavigator" component={MainNavigator} />
         <Stack.Screen name="Login" component={Login} />
+
 
       </Stack.Navigator>
     </NavigationContainer>

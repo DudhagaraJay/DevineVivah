@@ -13,12 +13,13 @@ interface Input {
     mainStyle?: any
     nameStyle?: boolean
     keyboardType?: any
+    maxLength?: number
 }
 
 
 const NameInput = (auto: Input) => {
     return (
-        <View style={[styles.container, auto.mainStyle]}>
+        <View style={[styles.container, auto.mainStyle,]}>
             <Text style={[Typography.title, {marginBottom: auto.nameStyle ? 5 : 0}]}>{auto.title}</Text>
             <View style={styles.inputBox}>
                 <TextInput
@@ -27,6 +28,8 @@ const NameInput = (auto: Input) => {
                     style={styles.input}
                     value={auto.value}
                     keyboardType={auto.keyboardType}
+                    maxLength={auto.maxLength}
+                    
                     />
             </View>
         </View>

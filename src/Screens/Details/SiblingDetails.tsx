@@ -1,15 +1,17 @@
 // import { StyleSheet, Text, View } from 'react-native'
 // import React from 'react'
 
-// const Location = () => {
+// const SiblingDetails = () => {
 //   return (
 //     <View>
-//       <Text>Location</Text>
+//       <Text>SiblingDetails</Text>
 //     </View>
 //   )
 // }
 
-// export default Location
+// export default SiblingDetails
+
+// const styles = StyleSheet.create({})
 
 
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
@@ -22,9 +24,8 @@ import NameInput from '../../Component/Placeholder/NameInput'
 import CustomDropdown from '../../Component/Dropdowns/Dropdown'
 import InputDropdown from '../../Component/Dropdowns/InputDropdown'
 import Button from '../../Component/Buttons/Button'
-import About from '../../Component/Placeholder/About'
 
-const Location = () => {
+const SiblingDetails = () => {
 
   const [name, setName] = useState("")
   const [caste, setCaste] = useState("")
@@ -43,45 +44,46 @@ const Location = () => {
       <BackHeader />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
-          <Text style={Typography.main_heading}>Location Details</Text>
+          <Text style={Typography.main_heading}>Sibling Details</Text>
           <View style={{ marginTop: moderateScale(20), gap: moderateScale(20) }}>
+            <NameInput
+              placeholder='Sibling Name'
+              title='Sibling 1'
+              value={""}
+              onChangeText={""}
+              nameStyle />
             <CustomDropdown
               items={items}
               selectedValue={selected}
               onSelect={(item: any) => setSelected(item)}
-              placeholder='Select'
-              title='Country'
+              placeholder='Select Gender'
+            
             />
-            <CustomDropdown
+            {/* <CustomDropdown
               items={items}
               selectedValue={caste}
               onSelect={(item: any) => setCaste(item)}
-              placeholder='Select'
-              title='State'
-            />
-            <CustomDropdown
+              placeholder='Select C'
+              title='You Caste'
+            /> */}
+             <NameInput 
+             placeholder='Sibling Age'
+             />
+              <CustomDropdown
               items={items}
               selectedValue={caste}
               onSelect={(item: any) => setCaste(item)}
-              placeholder='Select'
-              title='City'
-            />
-            <NameInput
-            nameStyle
-              placeholder='Enter postal code here..'
-              title='Postal Code'
-              keyboardType={"numeric"}
-              maxLength={6}
+              placeholder='Select Martial Status'
             />
           </View>
         </View>
-        <Button title='Continue' mainStyle={styles.btn} />
+        <Button title='SAVE' mainStyle={styles.btn} />
       </ScrollView>
     </SafeAreaView>
   )
 }
 
-export default Location
+export default SiblingDetails
 
 const styles = StyleSheet.create({
   container: {
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 16,
   },
-  btn: {
+  btn:{
     margin: moderateScale(10),
     marginVertical: moderateScale(25)
   }

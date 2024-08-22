@@ -21,6 +21,24 @@ export const Typography = StyleSheet.create({
         fontSize: FontSize.Font16,
         fontWeight: "500"
       },
+      smallText: {
+       fontSize: FontSize.Font12,
+       lineHeight: 15,
+       fontFamily: "Urbanist-SemiBold",
+       color: Color.chatBg
+      },
+      smallTitle:{
+      fontSize: FontSize.Font16,
+      fontFamily: "Poppins-Medium",
+      fontWeight: "500",
+      letterSpacing: 0.5
+      },
+      tab:{
+        fontSize: FontSize.Font12,
+        fontFamily: "Poppins-Medium",
+        fontWeight: "400",
+        
+        },
       body:{
         fontFamily: "Poppins-Medium",
         fontSize: FontSize.Font16,

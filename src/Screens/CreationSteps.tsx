@@ -25,6 +25,10 @@ const CreationSteps = () => {
         navigate(screen, {});
     };
 
+    const submit = () => {
+        navigate("MainNavigator", {})
+    }
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
             <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
@@ -78,7 +82,7 @@ const CreationSteps = () => {
                         )}
                     />
                 </View>
-                <Button title='Submit'mainStyle={styles.btn} />
+                <Button title='Submit' onPress={submit} mainStyle={styles.btn} />
             </ScrollView>
         </SafeAreaView>
     )
@@ -103,8 +107,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 5
     },
-    btn:{
-    marginVertical: moderateScale(40),
-    marginHorizontal: moderateScale(10)
+    btn: {
+        marginVertical: moderateScale(40),
+        marginHorizontal: moderateScale(10)
     }
 })

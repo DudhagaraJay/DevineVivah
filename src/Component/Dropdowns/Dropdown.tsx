@@ -25,7 +25,7 @@ const CustomDropdown = (auto: Idropdown) => {
 
     return (
         <View style={styles.container}>
-            <Text style={[Typography.title, { marginBottom: 5 }]}>{auto.title}</Text>
+            <Text style={[Typography.title, {marginBottom: auto.title ? 5 : -15}]}>{auto.title}</Text>
             <TouchableOpacity
                 style={styles.dropdown}
                 onPress={() => setIsVisible(!isVisible)}
