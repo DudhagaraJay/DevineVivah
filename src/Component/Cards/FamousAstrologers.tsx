@@ -13,12 +13,13 @@
 
 // const styles = StyleSheet.create({})
 
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native'
+import { FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Typography } from '../../Theme/Typography'
 import { Color } from '../../Theme'
 import { moderateScale } from '../../Theme/ResposiveSize'
 import { FontSize } from '../../Theme/FontSize'
+import { navigate } from '../../Navigator/Utils'
 
 const FamousAstrologers = () => {
     const right = require("../../assets/Image/smallTik.png")
@@ -48,7 +49,7 @@ const FamousAstrologers = () => {
 
 
     const renderItem = ({ item }: any) => (
-        <View style={styles.itemContainer}>
+        <Pressable onPress={() => navigate("AstrologerProfileView", {})} style={styles.itemContainer}>
             <Image source={item.image} style={styles.image} />
             <View style={{flexDirection: "row", gap: 5, alignItems: "center"}}>
             <Text style={[Typography.small,{color:Color.black, alignSelf: "flex-start"} ]}>{item.name}</Text>
@@ -59,7 +60,7 @@ const FamousAstrologers = () => {
             <Text style={Typography.smallText}>{item.detalis}</Text>
 
             </View>
-        </View>
+        </Pressable>
     );
 
     return (

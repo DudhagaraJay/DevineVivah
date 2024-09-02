@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   },
   input: { 
     marginHorizontal: 10, 
+    flex: 1,
     fontFamily: "Poppins-Medium",
-    top: 2,
     fontSize: FontSize.Font16 },
 });

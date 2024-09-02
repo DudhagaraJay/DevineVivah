@@ -5,12 +5,13 @@ import { Color } from '../../Theme'
 
 interface IFilters {
     onFilter?: Function
+    mainStyle?: any
 }
 const Filters = (auto: IFilters) => {
 
     const Filter = require("../../assets/Image/Filters.png")
     return (
-        <Pressable onPress={() => auto.onFilter ? auto.onFilter() : null} style={styles.container}>
+        <Pressable onPress={() => auto.onFilter ? auto.onFilter() : null} style={[styles.container, auto.mainStyle]}>
             <Image source={Filter} style={{ height: 18, width: 24 }} />
         </Pressable>
     )

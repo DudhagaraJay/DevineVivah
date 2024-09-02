@@ -5,27 +5,44 @@ import { height, moderateScale } from '../../Theme/ResposiveSize'
 import { Typography } from '../../Theme/Typography'
 import SearchContent from '../Search/SearchCard'
 import Filters from '../Filters/Filters'
+import { navigate } from '../../Navigator/Utils'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const HeaderCard = () => {
+interface IHeader {
+    BgWhite?: boolean
+    showCard?: boolean
+    showNotification?: boolean
+}
+
+const HeaderCard = (Props: IHeader) => {
 
     const profile = require("../../assets/Image/avatar.png")
     const bell = require("../../assets/Image/bell.png")
 
     return (
-        <View style={styles.mainView}>
+        <View style={[styles.mainView, { backgroundColor: Props.BgWhite ? Color.white : Color.orange, }]}>
             <StatusBar backgroundColor={Color.orange} barStyle={'light-content'} />
             <View style={{ marginTop: moderateScale(30), padding: moderateScale(10), flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
                 <View style={styles.profileCard}>
                     <Image source={profile} style={styles.profile} />
-                    <Text style={[styles.name, Typography.small]}>Good Evening, Joe</Text>
+                    <Text style={[styles.name, Typography.samll_bold, { color: Props.BgWhite ? Color.black : Color.white }]}>Good Evening, Joe</Text>
                 </View>
-                <Pressable>
+                {!Props.showCard ? <Pressable>
                     <Image source={bell} style={styles.bell} />
                 </Pressable>
+                    :
+                    <Pressable>
+                        <FontAwesome5 name="shopping-cart" size={26} color={Color.orange} />
+                    </Pressable>
+
+                }
             </View>
             <View style={styles.searchCard}>
-                <SearchContent />
-                <Filters />
+                <SearchContent style={{ width: Props.showNotification ? "65%" : "80%", backgroundColor: Color.boxBg }} />
+                <Filters onFilter={() => navigate("Filters", {})} mainStyle={{ backgroundColor: Color.boxBg }} />
+                {Props.BgWhite ? <Pressable style={styles.bgball}>
+                    <Image source={bell} style={{ height: 24, width: 24 }} tintColor={Color.bellbg} />
+                </Pressable> : ""}
             </View>
         </View>
     )
@@ -35,7 +52,6 @@ export default HeaderCard
 
 const styles = StyleSheet.create({
     mainView: {
-        backgroundColor: Color.orange,
         minHeight: moderateScale(157),
         borderBottomLeftRadius: 13,
         borderBottomRightRadius: 13
@@ -62,5 +78,13 @@ const styles = StyleSheet.create({
     bell: {
         height: moderateScale(27),
         width: moderateScale(27),
+    },
+    bgball: {
+        height: moderateScale(48),
+        width: moderateScale(48),
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: Color.boxBg,
+        borderRadius: 5,
     }
 })
