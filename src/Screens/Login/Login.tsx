@@ -16,7 +16,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
 
     const userlogin = () => {
-        navigate("HomeScreen", {})
+        navigate("MainNavigator", {})
     }
 
     return (

@@ -31,6 +31,9 @@ import ForgotPassword from '../Screens/Login/ForgotPassword';
 import OTPVerification from '../Screens/Login/OTPVerification';
 import CreactNewPassword from '../Screens/Login/CreactNewPassword';
 import PasswordChangeSuccess from '../Screens/Login/PasswordChangeSuccess';
+import Checkout from '../Screens/Checkout/Checkout';
+import ShippingAddressCard from '../Component/Shipping/ShippingAddressCard';
+import ShippingAddress from '../Component/Shipping/ShippingAddress';
 
 
 
@@ -42,6 +45,10 @@ const Application = () => {
   return (
     <NavigationContainer ref={navigationRef} >
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="ShippingAddress" component={ShippingAddress} />
+      <Stack.Screen name="Checkout" component={Checkout} />
+
+
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
       <Stack.Screen name="OTPVerification" component={OTPVerification} />

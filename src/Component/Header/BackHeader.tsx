@@ -21,7 +21,7 @@ export default BackHeader
 const styles = StyleSheet.create({
   mainContainer:{
     backgroundColor: Color.white, 
-    height: moderateScale(90),
+    height: moderateScale(70),
      elevation: 5},
     container:{
         borderRadius: moderateScale(50),
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         margin: moderateScale(10),
-        marginTop: moderateScale(35)
+        marginTop: moderateScale(15)
     }
 })
