@@ -44,7 +44,7 @@ const ShippingAddressCard = (Props: ShippingCard) => {
             <Text style={[Typography.small, { fontSize: FontSize.Font15, color: Color.chatBg }]}>+{Props.phoneNumber}</Text>
           </View>
           <Text style={[Typography.small, { maxWidth: scale(250), fontSize: FontSize.Font15 }]}>{Props.address}</Text>
-          {Props.addressBtton && <View style={{ borderWidth: 1, borderRadius: 8, borderColor: Color.orange, padding: 5, marginTop: 5, maxWidth: moderateScale(200) }}>
+          {Props.addressBtton && <View style={{ borderWidth: 1, borderRadius: 8.3, borderColor: Color.orange, padding: 5, marginTop: 5, maxWidth: moderateScale(200) }}>
             <Text style={[Typography.small, { color: Color.orange }]} >Default primary address</Text>
           </View>}
 
