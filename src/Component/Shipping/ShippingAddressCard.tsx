@@ -4,6 +4,8 @@ import { Color } from '../../Theme'
 import { Typography } from '../../Theme/Typography'
 import { FontSize } from '../../Theme/FontSize'
 import { moderateScale, scale } from '../../Theme/ResposiveSize'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+
 
 interface ShippingCard {
   heading?: string
@@ -32,8 +34,9 @@ const ShippingAddressCard = (Props: ShippingCard) => {
           {!Props.ShowEdit ?
             <Image source={right} style={{ height: 15, width: 15, position: "absolute", alignSelf: "flex-end", right: -30, tintColor: Color.orange }} resizeMode='contain' />
             :
-            <View style={{ flexDirection: "row", position: "absolute", alignSelf: "flex-end", right: -24 }}>
-              <Image source={right} style={{ height: 20, width: 20 }} resizeMode='contain' />
+            <View style={{ flexDirection: "row", position: "absolute", alignSelf: "flex-end", right: -24, gap: 5, alignItems: "center" }}>
+              {/* <Image source={right} style={{ height: 20, width: 20 }} resizeMode='contain' /> */}
+              <FontAwesome name='edit' size={20} color={Color.orange}    />
               <Text style={[Typography.smallText, { fontSize: FontSize.Font18, lineHeight: 22, color: Color.orange }]}>Edit</Text>
             </View>
 
@@ -44,7 +47,7 @@ const ShippingAddressCard = (Props: ShippingCard) => {
             <Text style={[Typography.small, { fontSize: FontSize.Font15, color: Color.chatBg }]}>+{Props.phoneNumber}</Text>
           </View>
           <Text style={[Typography.small, { maxWidth: scale(250), fontSize: FontSize.Font15 }]}>{Props.address}</Text>
-          {Props.addressBtton && <View style={{ borderWidth: 1, borderRadius: 8.3, borderColor: Color.orange, padding: 5, marginTop: 5, maxWidth: moderateScale(200) }}>
+          {Props.addressBtton && <View style={{ borderWidth: 1, borderRadius: 8, borderColor: Color.orange, padding: 5, marginTop: 5, maxWidth: moderateScale(200) }}>
             <Text style={[Typography.small, { color: Color.orange }]} >Default primary address</Text>
           </View>}
 

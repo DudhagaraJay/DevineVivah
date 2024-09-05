@@ -8,6 +8,8 @@ export const FontSize={
     Font24:textScale(24),
     
     Font22:textScale(22),
+    Font21:textScale(21),
+
     Font20:textScale(20),
     Font18:textScale(18),
     Font16:textScale(16),

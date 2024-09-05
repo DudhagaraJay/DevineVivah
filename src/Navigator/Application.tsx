@@ -25,7 +25,6 @@ import ViewProfile from '../Screens/ViewProfile';
 import AstrologerProfileView from '../Screens/AstrologerProfileView';
 import SelectCategory from '../Screens/SelectCategory';
 import ProductView from '../Screens/ProductView';
-import CardScreen from '../Screens/CardScreen';
 import Login from '../Screens/Login/Login';
 import ForgotPassword from '../Screens/Login/ForgotPassword';
 import OTPVerification from '../Screens/Login/OTPVerification';
@@ -34,6 +33,10 @@ import PasswordChangeSuccess from '../Screens/Login/PasswordChangeSuccess';
 import Checkout from '../Screens/Checkout/Checkout';
 import ShippingAddressCard from '../Component/Shipping/ShippingAddressCard';
 import ShippingAddress from '../Component/Shipping/ShippingAddress';
+import CardScreen from '../Screens/Checkout/CardScreen';
+import AddShippingAddress from '../Component/Shipping/AddShippingAddress';
+import SelectPaymentMethod from '../Screens/PaymentMethod/SelectPaymentMethod';
+import Orderplaced from '../Screens/PaymentMethod/Orderplaced';
 
 
 
@@ -45,15 +48,14 @@ const Application = () => {
   return (
     <NavigationContainer ref={navigationRef} >
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="ShippingAddress" component={ShippingAddress} />
-      <Stack.Screen name="Checkout" component={Checkout} />
 
 
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-      <Stack.Screen name="OTPVerification" component={OTPVerification} />
-      <Stack.Screen name="CreactNewPassword" component={CreactNewPassword} />
-      <Stack.Screen name="PasswordChangeSuccess" component={PasswordChangeSuccess} />
+
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="OTPVerification" component={OTPVerification} />
+        <Stack.Screen name="CreactNewPassword" component={CreactNewPassword} />
+        <Stack.Screen name="PasswordChangeSuccess" component={PasswordChangeSuccess} />
 
 
 
@@ -78,6 +80,14 @@ const Application = () => {
         <Stack.Screen name="SelectCategory" component={SelectCategory} />
         <Stack.Screen name="ProductView" component={ProductView} />
         <Stack.Screen name="CardScreen" component={CardScreen} />
+        <Stack.Screen name="ShippingAddress" component={ShippingAddress} />
+        <Stack.Screen name="Checkout" component={Checkout} />
+        <Stack.Screen name="AddShippingAddress" component={AddShippingAddress} />
+        <Stack.Screen name="SelectPaymentMethod" component={SelectPaymentMethod} />
+        <Stack.Screen name="Orderplaced" component={Orderplaced} />
+
+
+
 
 
 
