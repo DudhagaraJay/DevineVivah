@@ -8,6 +8,8 @@ import RadioButton from '../Buttons/RadioButton';
 import { moderateScale } from '../../Theme/ResposiveSize';
 import Button from '../Buttons/Button';
 import { navigate } from '../../Navigator/Utils';
+import { Typography } from '../../Theme/Typography';
+import { FontSize } from '../../Theme/FontSize';
 
 
 const AddShippingAddress = () => {
@@ -33,7 +35,7 @@ const AddShippingAddress = () => {
 
             <View style={styles.radioContainer}>
                 <View style={[styles.radioRow]}>
-                    <Text style={styles.labelText}>Address Category</Text>
+                    <Text style={[Typography.smallText,{fontSize: FontSize.Font16, color: Color.black, lineHeight: 20}]}>Address Category</Text>
                     <View style={styles.radioGroup}>
                         <RadioButton
                             selected={addressCategory === 'home'}
@@ -49,7 +51,7 @@ const AddShippingAddress = () => {
                 </View>
 
                 <View style={[styles.radioRow, { marginTop: 20 }]}>
-                    <Text style={styles.labelText}>Default Shipping Address</Text>
+                    <Text style={[Typography.smallText,{fontSize: FontSize.Font16, color: Color.black, lineHeight: 20}]}>Default Shipping Address</Text>
                     <View style={styles.radioGroup}>
                         <RadioButton
                             selected={defaultShipping === 'on'}
@@ -65,7 +67,7 @@ const AddShippingAddress = () => {
                 </View>
 
                 <View style={[styles.radioRow, { marginTop: 20 }]}>
-                    <Text style={styles.labelText}>Default Billing Address</Text>
+                    <Text style={[Typography.smallText,{fontSize: FontSize.Font16, color: Color.black, lineHeight: 20}]}>Default Billing Address</Text>
                     <View style={styles.radioGroup}>
                         <RadioButton
                             selected={defaultBilling === 'on'}
@@ -81,7 +83,7 @@ const AddShippingAddress = () => {
                 </View>
             </View>
             
-                <Button title="SAVE" mainStyle={{marginBottom: 20}} onPress={() => navigate("SelectPaymentMethod",{})} />
+                <Button title="SAVE"  onPress={() => navigate("SelectPaymentMethod",{})} />
             
             </View>
             </ScrollView>

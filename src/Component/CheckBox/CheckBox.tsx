@@ -2,19 +2,22 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const CustomCheckBox = ({ label, checked, onChange }: any) => {
-  return (
-    <TouchableOpacity style={styles.checkboxContainer} onPress={onChange}>
-      <View style={styles.checkbox}>
-        {checked && <View style={styles.square} />}
-      </View>
-      {label && <Text style={styles.label}>{label}</Text>}
-    </TouchableOpacity>
-  );
-};
 
-const CheckBox = () => {
+
+const CheckBox = (checkstyle: any) => {
   const [isChecked, setIsChecked] = useState(false);
+
+
+  const CustomCheckBox = ({ label, checked, onChange }: any) => {
+    return (
+      <TouchableOpacity style={styles.checkboxContainer} onPress={onChange}>
+        <View style={[styles.checkbox,{height: checkstyle ? 20 : 25, width: checkstyle ? 20: 25}]}>
+          {checked && <View style={[styles.square,{height: checkstyle ? 14 : 16, width: checkstyle ? 14: 16}]} />}
+        </View>
+        {label && <Text style={styles.label}>{label}</Text>}
+      </TouchableOpacity>
+    );
+  };
 
   const toggleCheckbox = () => {
     setIsChecked(!isChecked);

@@ -38,7 +38,7 @@ const AstrologerProfileView = () => {
         <SafeAreaView style={{ flex: 1 }}>
             <StatusBar backgroundColor={Color.white} barStyle={'dark-content'} />
             <ScrollView>
-                <View style={{ marginTop: "5%" }}>
+                <View style={{ marginTop: "10%" }}>
                     <FlatList
                         data={images}
                         ref={flatListRef}

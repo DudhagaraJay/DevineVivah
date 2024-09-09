@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, StatusBar, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, StatusBar, Image, ScrollView, Pressable } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { Color } from '../../Theme';
 import Button from '../../Component/Buttons/Button';
 import { Typography } from '../../Theme/Typography';
 import { FontSize } from '../../Theme/FontSize';
-import { moderateScale } from '../../Theme/ResposiveSize';
+import { moderateScale, scale } from '../../Theme/ResposiveSize';
 import ProductCard from '../../Component/Cards/ProductCard';
+import { navigationRef } from '../../Navigator/Utils';
 
 const Close = require('../../assets/Image/close.png');
 const Cash = require('../../assets/Image/Cash.png');
@@ -63,7 +64,7 @@ const Orderplaced = () => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
-            <StatusBar backgroundColor={'#FFBABC'} barStyle={'dark-content'} />
+            <StatusBar backgroundColor={"transparent"} translucent barStyle={'dark-content'} />
             <ScrollView>
             <LinearGradient
                 colors={[ '#FFBABC', '#DC777B',]}
@@ -73,7 +74,9 @@ const Orderplaced = () => {
             >
                 <View style={styles.content}>
                     <View style={{ flexDirection: "row", alignItems: "center" }}>
-                        <Image source={Close} style={{ marginRight: 50,  height: 22, width: 22 }} resizeMode='contain' />
+                        <Pressable onPress={() => navigationRef.goBack()}>
+                        <Image  source={Close} style={{ marginRight: 50,  height: 22, width: 22 }} resizeMode='contain' />
+                        </Pressable>
                         <Text style={[Typography.samll_bold,{ fontSize: FontSize.Font20 , color: Color.white }]}>Pay at your address</Text>
                     </View>
                     <View style={{ backgroundColor: "white", marginTop: moderateScale(25), borderRadius: 10, padding: 15 }}>
@@ -104,11 +107,8 @@ const styles = StyleSheet.create({
     container: {
     },
     content: {
-        // flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        marginTop: 16,
-        padding: 16
+        marginTop: moderateScale(25),
+        padding: moderateScale(16)
     },
     text: {
         fontSize: 24,

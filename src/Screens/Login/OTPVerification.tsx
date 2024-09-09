@@ -1,13 +1,13 @@
-import { SafeAreaView, View, Text, StyleSheet, ScrollView, TextInput, Image, StatusBar } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, ScrollView, TextInput, Image, StatusBar, Pressable } from 'react-native';
 import React, { useRef, useState } from 'react';
 import { Color } from '../../Theme';
 import { Typography } from '../../Theme/Typography';
 import Button from '../../Component/Buttons/Button';
 import { moderateScale } from '../../Theme/ResposiveSize';
-import { navigate } from '../../Navigator/Utils';
+import { navigate, navigationRef } from '../../Navigator/Utils';
 
 
-// const BackButton = require('../assets/Image/back.png')
+const BackButton = require('../../assets/Image/arrow-left.png')
 
 
 const OTPVerification = () => {
@@ -33,13 +33,14 @@ const OTPVerification = () => {
     };
 
     const handleContinue = () => {
-        navigate("CreactNewPassword", {})
-        console.warn('OTP entered:', otp.join(''));
+        navigate("CreactNewPassword", {type: "CreactNewPassword"})
     };
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
-            {/* <Image source={BackButton} style={styles.icon} /> */}
+            <Pressable onPress={() => navigationRef.goBack()} style={styles.back}>
+                <Image source={BackButton} style={styles.icon} />
+            </Pressable>
             <StatusBar backgroundColor={'white'} barStyle={"dark-content"} />
             <View style={styles.container}>
                 <Text style={Typography.main_heading}>OTP Verification</Text>
@@ -106,10 +107,20 @@ const styles = StyleSheet.create({
         marginTop: moderateScale(20)
     },
     icon: {
+        height: moderateScale(30),
+        width: moderateScale(30),
+
+    },
+    back: {
+        marginTop: moderateScale(50),
+        backgroundColor: Color.boxBg,
+        borderWidth: 1,
+        borderColor: Color.border,
+        marginLeft: moderateScale(16),
+        alignItems: "center",
+        justifyContent: "center",
         height: moderateScale(50),
         width: moderateScale(50),
-        // alignSelf: 'center',
-        marginLeft: moderateScale(20),
-        marginTop: moderateScale(20),
-    },
+        borderRadius: moderateScale(50)
+    }
 });

@@ -18,7 +18,7 @@ import SiblingDetails from '../Screens/Details/SiblingDetails';
 import HomeScreen from '../Screens/HomeScreen';
 import StoreScreen from '../Screens/StoreScreen';
 import ChatesScreen from '../Screens/ChatesScreen';
-import ProfileScreen from '../Screens/ProfileScreen';
+import ProfileScreen from '../Screens/Profile/ProfileScreen';
 import MainNavigator from './BottomTab/Main';
 import Filters from '../Screens/Filters';
 import ViewProfile from '../Screens/ViewProfile';
@@ -37,6 +37,13 @@ import CardScreen from '../Screens/Checkout/CardScreen';
 import AddShippingAddress from '../Component/Shipping/AddShippingAddress';
 import SelectPaymentMethod from '../Screens/PaymentMethod/SelectPaymentMethod';
 import Orderplaced from '../Screens/PaymentMethod/Orderplaced';
+import HelpAndSupport from '../Screens/Help/HelpAndSupport';
+import ChangePassword from '../Screens/Profile/ChangePassword';
+import MyFavorites from '../Screens/Profile/MyFavorites';
+import MyOrders from '../Screens/MyOrders/MyOrders';
+import MyWishlist from '../Screens/MyWishlist/MyWishlist';
+import Singup from '../Screens/SingUp/Singup';
+import SelectInterests from '../Screens/Details/SelectInterests';
 
 
 
@@ -56,6 +63,15 @@ const Application = () => {
         <Stack.Screen name="OTPVerification" component={OTPVerification} />
         <Stack.Screen name="CreactNewPassword" component={CreactNewPassword} />
         <Stack.Screen name="PasswordChangeSuccess" component={PasswordChangeSuccess} />
+        <Stack.Screen name="HelpAndSupport" component={HelpAndSupport} />
+        <Stack.Screen name="ChangePassword" component={ChangePassword} />
+        <Stack.Screen name="MyFavorites" component={MyFavorites} />
+        <Stack.Screen name="MyOrders" component={MyOrders} />
+        <Stack.Screen name="MyWishlist" component={MyWishlist} />
+        <Stack.Screen name="Singup" component={Singup} />
+        <Stack.Screen name="SelectInterests" component={SelectInterests} />
+
+
 
 
 

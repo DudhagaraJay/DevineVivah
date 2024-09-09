@@ -1,6 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet, Pressable } from 'react-native';
 import { Color } from '../../Theme'; // Adjust this import according to your project structure
+import { Typography } from '../../Theme/Typography';
+import { FontSize } from '../../Theme/FontSize';
 
 const RadioButton = ({ selected, onPress, label, mainStyle }: any) => {
     return (
@@ -8,7 +10,7 @@ const RadioButton = ({ selected, onPress, label, mainStyle }: any) => {
             <View style={styles.radioButton}>
                 {selected ? <View style={styles.radioButtonInner} /> : null}
             </View>
-            <Text style={styles.label}>{label}</Text>
+            <Text style={[Typography.smallText,{fontSize: FontSize.Font16, color: Color.black, lineHeight: 20, marginLeft: 5}]}>{label}</Text>
         </Pressable>
     );
 };

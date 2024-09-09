@@ -10,30 +10,34 @@ interface Back {
   centerTitle?: string
   rightTitle?: string
   onpress?: Function
+  leftTitle?: string
 }
 const BackHeader = (Props: Back) => {
   const back = require("../../assets/Image/leftarrow.png")
+  const arrowleft = require("../../assets/Image/arrow-left.png")
 
 
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.headerContainer}>
+      <View style={[styles.headerContainer, { justifyContent: Props.leftTitle ? "flex-start" : "space-between" }]}>
         <Pressable onPress={() => navigationRef.goBack()}>
-          <View style={styles.container}>
+          {Props.leftTitle ? <Image source={arrowleft} style={{ width: 24, height: 24 }} /> : <View style={styles.container}>
             <Image source={back} style={{ width: 22, height: 18 }} />
-          </View>
+          </View>}
         </Pressable>
 
-        <Text
-          style={[
-            Typography.samll_bold,
-            styles.centerTitle,
-            Props.rightTitle ? { transform: [{ translateX: scale(40) }] } : { transform: [{ translateX: scale(-15) }] }
-          ]}
-        >
-          {Props.centerTitle}
-        </Text>
-
+        {Props.leftTitle ?
+          <Text style={[Typography.smallText, { lineHeight: 22, marginLeft: moderateScale(7), fontSize: FontSize.Font18, color: Color.black }]}>{Props.leftTitle}</Text>
+          :
+          <Text
+            style={[
+              Typography.samll_bold,
+              styles.centerTitle,
+              Props.rightTitle ? { transform: [{ translateX: scale(40) }] } : { transform: [{ translateX: scale(-15) }] }
+            ]}
+          >
+            {Props.centerTitle}
+          </Text>}
         <Text onPress={() => Props.onpress ? Props.onpress() : null} style={[Typography.samll_bold, styles.rightTitle]}>{Props.rightTitle}</Text>
       </View>
     </View>
@@ -52,7 +56,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+
     padding: 10,
     marginTop: 10,
   },

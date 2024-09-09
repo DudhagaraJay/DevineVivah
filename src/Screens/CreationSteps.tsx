@@ -26,7 +26,7 @@ const CreationSteps = () => {
     };
 
     const submit = () => {
-         navigate("MainNavigator", {})
+         navigate("SelectInterests", {})
     }
 
     return (

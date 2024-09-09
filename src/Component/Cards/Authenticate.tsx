@@ -10,11 +10,11 @@ const Authenticate = () => {
     return (
         <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: moderateScale(30) }}>
             <View style={styles.cards}>
-                <Image source={google} style={{ height: 27, width: 27 }} resizeMode='contain' />
+                <Image source={google} style={styles.icon} resizeMode='contain' />
                 <Text style={[styles.title, Typography.small]}>Google</Text>
             </View>
             <View style={styles.cards}>
-                <Image source={facebook} resizeMode='contain' style={{ height: 27, width: 27 }} />
+                <Image source={facebook} style={styles.icon} resizeMode='contain' />
                 <Text style={[styles.title, Typography.small]}>Facebook</Text>
             </View>
         </View>
@@ -30,13 +30,16 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: Color.border,
         flexDirection: "row",
+        justifyContent: "center", 
+        alignItems: "center", 
         gap: 10,
-        padding: 15,
+        paddingVertical: moderateScale(10),
+        paddingHorizontal: moderateScale(15),
         width: moderateScale(165),
-        alignItems: "center",
-        alignSelf: "center",
-        alignContent: "center"
-
+    },
+    icon: {
+        height: 27,
+        width: 27,
     },
     title: {
         color: "#4A4B4E"

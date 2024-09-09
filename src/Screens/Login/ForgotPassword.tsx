@@ -1,20 +1,22 @@
-import { SafeAreaView, View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, ScrollView, Image, Pressable } from 'react-native';
 import React from 'react';
 import { Color } from '../../Theme';
 import { Typography } from '../../Theme/Typography';
 import NameInput from '../../Component/Placeholder/NameInput';
 import Button from '../../Component/Buttons/Button';
 import { moderateScale } from '../../Theme/ResposiveSize';
-import { navigate } from '../../Navigator/Utils';
+import { navigate, navigationRef } from '../../Navigator/Utils';
 
 
 
-// const BackButton = require('../assets/Image/back.png')
+const BackButton = require('../../assets/Image/arrow-left.png')
 
 const ForgotPassword = () => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
-            {/* <Image source={BackButton} style={styles.icon} /> */}
+            <Pressable onPress={() => navigationRef.goBack()} style={styles.back}>
+                <Image source={BackButton} style={styles.icon} />
+            </Pressable>
             <View style={styles.container}>
                 <Text style={Typography.main_heading}>Forgot Password?</Text>
                 <Text style={[styles.text, Typography.body]}>Don’t worry! It occurs. Please enter the email address linked with your account.</Text>
@@ -54,10 +56,20 @@ const styles = StyleSheet.create({
         color: Color.chatBg
     },
     icon: {
+        height: moderateScale(30),
+        width: moderateScale(30),
+
+    },
+    back: {
+        marginTop: moderateScale(50),
+        backgroundColor: Color.boxBg,
+        borderWidth: 1,
+        borderColor: Color.border,
+        marginLeft: moderateScale(16),
+        alignItems: "center",
+        justifyContent: "center",
         height: moderateScale(50),
         width: moderateScale(50),
-        // alignSelf: 'center',
-        marginLeft: moderateScale(20),
-        marginTop: moderateScale(20),
-    },
+        borderRadius: moderateScale(50)
+    }
 });

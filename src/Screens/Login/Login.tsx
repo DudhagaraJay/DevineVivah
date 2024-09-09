@@ -47,7 +47,7 @@ const Login = () => {
                         <View style={styles.line} />
                     </View>
                     <Authenticate />
-                    <Text style={styles.register}>Don’t have an account? <Text style={{ fontWeight: "bold", color: Color.orange }}>Register Now</Text></Text>
+                    <Text style={styles.register}>Don’t have an account? <Text onPress={() => navigate("Singup", {})} style={{ fontWeight: "bold", color: Color.orange }}>Register Now</Text></Text>
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -58,9 +58,9 @@ export default Login
 
 const styles = StyleSheet.create({
     mainContainer: {
+        padding: moderateScale(16),
         flex: 1,
         backgroundColor: Color.white,
-        alignItems: "center",
 
     },
     heading: {

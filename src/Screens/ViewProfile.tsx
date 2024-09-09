@@ -113,7 +113,7 @@ const ViewProfile = () => {
         bouncesZoom={true}
       >
 
-        <View style={{ marginTop: "5%" }}>
+        <View style={{ marginTop: "10%" }}>
           <FlatList
             data={images}
             ref={flatListRef}
@@ -189,8 +189,8 @@ const styles = StyleSheet.create({
   },
   image: {
     height: moderateScale(340),
-    width: moderateScale(390),
-    alignSelf: "center"
+    width: moderateScale(370),
+    // alignSelf: "center"
   },
   back: {
     position: "absolute",
