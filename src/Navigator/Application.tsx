@@ -17,7 +17,6 @@ import Verification from '../Screens/Details/Verification';
 import SiblingDetails from '../Screens/Details/SiblingDetails';
 import HomeScreen from '../Screens/HomeScreen';
 import StoreScreen from '../Screens/StoreScreen';
-import ChatesScreen from '../Screens/ChatesScreen';
 import ProfileScreen from '../Screens/Profile/ProfileScreen';
 import MainNavigator from './BottomTab/Main';
 import Filters from '../Screens/Filters';
@@ -44,6 +43,10 @@ import MyOrders from '../Screens/MyOrders/MyOrders';
 import MyWishlist from '../Screens/MyWishlist/MyWishlist';
 import Singup from '../Screens/SingUp/Singup';
 import SelectInterests from '../Screens/Details/SelectInterests';
+import Notifacations from '../Screens/Notifacations/Notifacations';
+import ChatScreen from '../Screens/Chat/Chat';
+import LiveChat from '../Screens/Chat/LiveChat';
+import OrderDetails from '../Screens/MyOrders/OrderDetails';
 
 
 
@@ -70,7 +73,9 @@ const Application = () => {
         <Stack.Screen name="MyWishlist" component={MyWishlist} />
         <Stack.Screen name="Singup" component={Singup} />
         <Stack.Screen name="SelectInterests" component={SelectInterests} />
-
+        <Stack.Screen name="Notifacations" component={Notifacations} />
+        <Stack.Screen name="ChatScreen" component={ChatScreen} />
+        <Stack.Screen name="LiveChat" component={LiveChat} />
 
 
 
@@ -79,6 +84,7 @@ const Application = () => {
 
 
         <Stack.Screen name="CreationSteps" component={CreationSteps} />
+        <Stack.Screen name="OrderDetails" component={OrderDetails} />
         <Stack.Screen name="PersonalDetails" component={PersonalDetails} />
         <Stack.Screen name="Education" component={Education} />
         <Stack.Screen name="Profession" component={Profession} />
@@ -88,7 +94,6 @@ const Application = () => {
         <Stack.Screen name="Verification" component={Verification} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="StoreScreen" component={StoreScreen} />
-        <Stack.Screen name="ChatesScreen" component={ChatesScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="MainNavigator" component={MainNavigator} />
         <Stack.Screen name="ViewProfile" component={ViewProfile} />

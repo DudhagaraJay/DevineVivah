@@ -27,7 +27,7 @@ const HeaderCard = (Props: IHeader) => {
                     <Image source={profile} style={styles.profile} />
                     <Text style={[styles.name, Typography.samll_bold, { color: Props.BgWhite ? Color.black : Color.white }]}>Good Evening, Joe</Text>
                 </View>
-                {!Props.showCard ? <Pressable>
+                {!Props.showCard ? <Pressable onPress={() => navigate("Notifacations", {})}>
                     <Image source={bell} style={styles.bell} />
                 </Pressable>
                     :
@@ -40,7 +40,7 @@ const HeaderCard = (Props: IHeader) => {
             <View style={styles.searchCard}>
                 <SearchContent style={{ width: Props.showNotification ? "65%" : "80%", backgroundColor: Color.boxBg }} />
                 <Filters onFilter={() => navigate("Filters", {})} mainStyle={{ backgroundColor: Color.boxBg }} />
-                {Props.BgWhite ? <Pressable style={styles.bgball}>
+                {Props.BgWhite ? <Pressable onPress={() => navigate("Notifacations", {})} style={styles.bgball}>
                     <Image source={bell} style={{ height: 24, width: 24 }} tintColor={Color.bellbg} />
                 </Pressable> : ""}
             </View>

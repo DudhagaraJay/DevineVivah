@@ -8,6 +8,7 @@ import { Color } from '../../Theme';
 import { Typography } from '../../Theme/Typography';
 import { FontSize } from '../../Theme/FontSize';
 import { moderateScale, moderateScaleVertical } from '../../Theme/ResposiveSize';
+import { navigate } from '../../Navigator/Utils';
 
 interface CheckOut {
     status?: string
@@ -18,8 +19,8 @@ const CheckOutProduct = (Props: CheckOut) => {
     const product = require('../../assets/Image/product.png');
     return (
         <View style={styles.container}>
-            {Props.status && <Text style={Typography.small}>{Props.date}</Text>}
-            <View style={styles.card}>
+            {Props.status && <Text style={[Typography.small,{color: Color.chatBg}]}>{Props.date}</Text>}
+            <Pressable onPress={() => navigate("OrderDetails", {})} style={styles.card}>
                 <View style={styles.row}>
                     <Image source={product} style={styles.productImage} />
                     <View style={styles.productDetails}>
@@ -67,7 +68,7 @@ const CheckOutProduct = (Props: CheckOut) => {
                         <View style={{ borderBottomWidth: 1, borderBottomColor: Color.border, marginVertical: 10 }} />
                         <View style={{ flexDirection: "row", gap: 10, alignItems: "center", alignSelf: "flex-end" }}>
                             <Pressable style={styles.btn}>
-                                <Text style={[Typography.smallText, { fontSize: FontSize.Font16 }]}>Leave Feedback</Text>
+                                <Text style={[Typography.smallText, { fontSize: FontSize.Font16, lineHeight: 21 }]}>Leave Feedback</Text>
                             </Pressable>
                             <Pressable style={[styles.btn, { backgroundColor: Color.orange, width: moderateScale(85), }]} >
                                 <Text style={[Typography.smallText, { fontSize: FontSize.Font16, color: Color.white, lineHeight: 21 }]}> Buy Again</Text>
@@ -75,7 +76,8 @@ const CheckOutProduct = (Props: CheckOut) => {
                         </View>
                     </>
                 }
-            </View>
+                {/* <View style={styles.card} /> */}
+            </Pressable>
         </View>
     );
 };

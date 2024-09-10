@@ -15,6 +15,7 @@ interface ShippingCard {
   mainStyle?: any
   ShowEdit?: boolean
   addressBtton?: boolean
+  toptitle?: string
 }
 
 const ShippingAddressCard = (Props: ShippingCard) => {
@@ -27,6 +28,7 @@ const ShippingAddressCard = (Props: ShippingCard) => {
 
   return (
     <View>
+      {Props.toptitle && <Text style={[Typography.small,{color: Color.chatBg}]}>{Props.toptitle}</Text> }
       <View style={[styles.container, Props.mainStyle]}>
         <Image source={location} style={{ height: 45, width: 45 }} />
         <View style={{ gap: 3 }}>

@@ -7,6 +7,7 @@ import HomeScreen from "../../Screens/HomeScreen";
 import StoreScreen from "../../Screens/StoreScreen";
 import ChatesScreen from "../../Screens/ChatesScreen";
 import ProfileScreen from "../../Screens/Profile/ProfileScreen";
+import ChatScreen from "../../Screens/Chat/Chat";
 
 const Tab = createBottomTabNavigator();
 
@@ -71,7 +72,7 @@ const MainNavigator = ({ navigation }: any) => {
         />
         <Tab.Screen
           name="Chats"
-          component={ChatesScreen}
+          component={ChatScreen}
           options={options}
         />
 

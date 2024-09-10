@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         width: scale(178),
         backgroundColor: Color.boxBg,
         borderRadius: 10,
-        marginVertical: 8,
+        marginVertical: 5,
        
     },
     productImage: {
