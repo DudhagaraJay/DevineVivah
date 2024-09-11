@@ -1,108 +1,28 @@
-// import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-// import React from 'react'
-// import { Color } from '../../Theme'
-// import BackHeader from '../../Component/Header/BackHeader'
-// import { Typography } from '../../Theme/Typography'
-// import { moderateScale } from '../../Theme/ResposiveSize'
+import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
+import BackHeader from '../../Component/Header/BackHeader'
+import { Color } from '../../Theme'
+import { moderateScale, scale } from '../../Theme/ResposiveSize'
+import { Typography } from '../../Theme/Typography'
 
-// const SelectInterests = () => {
-
-//     const data = [
-//         {
-//             id: 1,
-//             title: "Reading"
-//         },
-//         {
-//             id: 2,
-//             title: "Photography"
-//         },
-//         {
-//             id: 3,
-//             title: "Gaming"
-//         },
-//         {
-//             id: 4,
-//             title: "Music"
-//         },
-//         {
-//             id: 5,
-//             title: "Travel"
-//         },
-//         {
-//             id: 6,
-//             title: "Painting"
-//         },
-//         {
-//             id: 7,
-//             title: "Politics"
-//         },
-//         {
-//             id: 8,
-//             title: "Charity"
-//         },
-//         {
-//             id: 9,
-//             title: "Cooking"
-//         },
-//         {
-//             id: 10,
-//             title: "Pets"
-//         },
-//         {
-//             id: 11,
-//             title: "Fashion"
-//         },
-        
-//         {
-//             id: 12,
-//             title: "Sports"
-//         },
-        
-//     ]
-
-//   return (
-//     <SafeAreaView style={{flex: 1, backgroundColor: Color.white}}>
-//         <BackHeader />
-//         <View style={{padding: 16}}>
-//         <Text style={[Typography.main_heading,{textAlign: "center"}]}>Education Details</Text>
-//         <Text style={[styles.text, Typography.body]}>Tell us what piques your curiosity and passions</Text>
-
-//         </View>
-    
-//     </SafeAreaView>
-//   )
-// }
-
-// export default SelectInterests
-
-// const styles = StyleSheet.create({
-//     text: {
-//         marginTop: moderateScale(20),
-//         color: Color.chatBg,
-//         textAlign: "center"
-//     },
-// })
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import { moderateScale } from '../../Theme/ResposiveSize';
-import { Color } from '../../Theme';
 
 const data = [
-  { id: 1, title: "Reading" },
-  { id: 2, title: "Photography" },
-  { id: 3, title: "Gaming" },
-  { id: 4, title: "Music" },
-  { id: 5, title: "Travel" },
-  { id: 6, title: "Painting" },
-  { id: 7, title: "Politics" },
-  { id: 8, title: "Charity" },
-  { id: 9, title: "Cooking" },
-  { id: 10, title: "Pets" },
-  { id: 11, title: "Fashion" },
-  { id: 12, title: "Sports" },
+  { id: 1, icon: require("../../assets/Image/carrier.png"), title: "Reading" },
+  { id: 2, icon: require("../../assets/Image/carrier.png"), title: "Photography" },
+  { id: 3, icon: require("../../assets/Image/carrier.png"), title: "Gaming" },
+  { id: 4, icon: require("../../assets/Image/carrier.png"), title: "Music" },
+  { id: 5, icon: require("../../assets/Image/carrier.png"), title: "Travel" },
+  { id: 6, icon: require("../../assets/Image/carrier.png"), title: "Painting" },
+  { id: 7, icon: require("../../assets/Image/carrier.png"), title: "Politics" },
+  { id: 8, icon: require("../../assets/Image/carrier.png"), title: "Charity" },
+  { id: 9, icon: require("../../assets/Image/carrier.png"), title: "Cooking" },
+  { id: 10, icon: require("../../assets/Image/carrier.png"), title: "Pets" },
+  { id: 11, icon: require("../../assets/Image/carrier.png"), title: "Fashion" },
+  { id: 12, icon: require("../../assets/Image/carrier.png"), title: "Sports" },
 ];
 
 const SelectInterests = () => {
+
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
 
   const toggleSelectItem = (id: number) => {
@@ -113,13 +33,16 @@ const SelectInterests = () => {
     }
   };
 
+
+
   const renderRow = (items: any[], isEvenRow: boolean) => {
     return (
       <View style={styles.row}>
-        {items.map(item => {
+        {items.map((item) => {
           const isSelected = selectedItems.includes(item.id);
           const itemStyle = isSelected ? styles.selectedItem : styles.item;
           const textStyle = isSelected ? styles.selectedText : styles.text;
+          const iconTintColor = isSelected ? Color.white : Color.orange;
 
           return (
             <TouchableOpacity
@@ -129,7 +52,8 @@ const SelectInterests = () => {
               onLongPress={() => toggleSelectItem(item.id)}
               delayLongPress={200}
             >
-              <Text style={textStyle}>{item.title}</Text>
+              <Image style={[styles.icon, { tintColor: iconTintColor }]} source={item.icon} />
+              <Text style={[textStyle, Typography.smallTitle]}>{item.title}</Text>
             </TouchableOpacity>
           );
         })}
@@ -137,12 +61,13 @@ const SelectInterests = () => {
     );
   };
 
+
+
   const groupDataIntoRows = () => {
     let rows = [];
     let currentIndex = 0;
 
     while (currentIndex < data.length) {
-      // Check if it's an even row (0th, 2nd, 4th, etc.)
       const isEvenRow = rows.length % 2 === 0;
       const numColumns = isEvenRow ? 2 : 3;
 
@@ -155,49 +80,88 @@ const SelectInterests = () => {
 
   const groupedData = groupDataIntoRows();
 
+
   return (
-    <ScrollView style={{ marginTop: 40 }}>
-      {groupedData.map((row, index) => renderRow(row, index % 2 === 0))}
-    </ScrollView>
-  );
-};
+    <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
+    <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+    <BackHeader />
+    <View style={{ padding: 16 }}>
+         <Text style={[Typography.main_heading, { textAlign: "center" }]}>Select Interests</Text>
+         <Text style={[styles.hedingtext, Typography.body]}>
+           Tell us what piques your curiosity and passions
+         </Text>
+       </View>
+       <ScrollView>
+         {groupedData.map((row, index) => renderRow(row, index % 2 === 0))}
+       </ScrollView>
+</SafeAreaView>
+  )
+}
+
+export default SelectInterests
 
 const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: moderateScale(10),
-  },
-  twoColumn: {
-    width: '48%', // Adjust width to allow 2 columns to fit
-  },
-  threeColumn: {
-    width: '30%', // Adjust width to allow 3 columns to fit
-  },
-  item: {
-    backgroundColor: Color.inputBg,
-    height: moderateScale(118),
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: moderateScale(5), // Adjust margin for spacing
-  },
-  selectedItem: {
-    backgroundColor: '#FF5A60',
-    height: moderateScale(118),
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: moderateScale(5),
-  },
-  text: {
-    color: Color.black,
-    textAlign: 'center',
-  },
-  selectedText: {
-    color: Color.white,
-    textAlign: 'center',
-  },
-});
-
-export default SelectInterests;
+  hedingtext: {
+        marginTop: moderateScale(20),
+        color: Color.chatBg,
+        textAlign: "center",
+      },
+      row: {
+        flexDirection: 'row',
+        alignSelf: "center",
+        alignItems: "center",
+        marginBottom: moderateScale(10),
+      },
+      twoColumn: {
+        padding: 10,
+        marginBottom: 15,
+        marginRight: 7,
+        borderRadius: 50,
+        borderWidth: 1,
+        borderColor: Color.border,
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 10,
+        justifyContent: 'center',
+      },
+      threeColumn: {
+        padding: 10,
+        marginBottom: 15,
+        marginRight: 7,
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 10,
+        borderRadius: 50,
+        borderWidth: 1,
+        borderColor: Color.border,
+        justifyContent: 'center',
+      },
+      item: {
+        backgroundColor: Color.inputBg,
+        borderRadius: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+        
+      },
+      selectedItem: {
+        backgroundColor: '#FF5A60',
+        borderRadius: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+      },
+      text: {
+        color: Color.black,
+        textAlign: 'center',
+      },
+      icon: {
+        width: scale(18),
+        height: scale(18),
+        marginBottom: 5, 
+      },
+      selectedText: {
+        color: Color.white,
+        textAlign: 'center',
+      },
+})

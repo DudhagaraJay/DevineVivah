@@ -5,7 +5,6 @@ import { navigationRef } from "../Utils";
 import NavigationTab from "./Tab";
 import HomeScreen from "../../Screens/HomeScreen";
 import StoreScreen from "../../Screens/StoreScreen";
-import ChatesScreen from "../../Screens/ChatesScreen";
 import ProfileScreen from "../../Screens/Profile/ProfileScreen";
 import ChatScreen from "../../Screens/Chat/Chat";
 import BookPooja from "../../Screens/Pooja/BookPooja";
@@ -72,7 +71,7 @@ const MainNavigator = ({ navigation }: any) => {
           options={options}
         />
         <Tab.Screen
-          name="BookPooja"
+          name="Book Pooja"
           component={BookPooja}
           options={options}
         />
