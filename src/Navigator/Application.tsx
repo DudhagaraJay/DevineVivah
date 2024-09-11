@@ -47,6 +47,7 @@ import Notifacations from '../Screens/Notifacations/Notifacations';
 import ChatScreen from '../Screens/Chat/Chat';
 import LiveChat from '../Screens/Chat/LiveChat';
 import OrderDetails from '../Screens/MyOrders/OrderDetails';
+import BookPooja from '../Screens/Pooja/BookPooja';
 
 
 
@@ -106,6 +107,7 @@ const Application = () => {
         <Stack.Screen name="AddShippingAddress" component={AddShippingAddress} />
         <Stack.Screen name="SelectPaymentMethod" component={SelectPaymentMethod} />
         <Stack.Screen name="Orderplaced" component={Orderplaced} />
+        <Stack.Screen name="BookPooja" component={BookPooja} />
 
 
 

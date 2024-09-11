@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 10,
         borderBottomWidth: 1,
-        marginTop: scale(25),
+        marginTop: scale(35),
         borderBottomColor: '#ddd',
     },
     profilePic: {

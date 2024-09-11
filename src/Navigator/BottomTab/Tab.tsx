@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import { Color } from "../../Theme";
 import { Typography } from "../../Theme/Typography";
 import { FontSize } from "../../Theme/FontSize";
+import { scale } from "../../Theme/ResposiveSize";
 
 
 const NavigationTab = ({ state, descriptors, navigation }: any) => {
@@ -10,6 +11,7 @@ const NavigationTab = ({ state, descriptors, navigation }: any) => {
   const shopping = require("../../assets/Image/shopping.png");
   const chat = require("../../assets/Image/chat.png");
   const profile = require("../../assets/Image/profile.png");
+  const bookPooja = require("../../assets/Image/kalasha.png");
   return (
 
     <View
@@ -54,7 +56,7 @@ const NavigationTab = ({ state, descriptors, navigation }: any) => {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{ flex: 1, justifyContent: "center" }}
+            style={{ flex: 1, justifyContent: "center", }}
             key={Math.random() * 10}
           >
             <View style={isFocused ? styles.activeTab : styles.tab}>
@@ -67,6 +69,16 @@ const NavigationTab = ({ state, descriptors, navigation }: any) => {
                   resizeMode="contain"
                   style={{ height: 24, width: 24 }}
                 />
+              )}
+              {label === "BookPooja" && (
+                <View style={{backgroundColor: Color.orange, alignItems: "center", justifyContent: "center", height: scale(40), width: scale(40), borderRadius: scale(50)}}>
+                  <Image
+                    source={bookPooja}
+                    resizeMode="contain"
+                    style={{ height: 24, width: 24 }}
+                  />
+
+                </View>
               )}
               {label === "Chats" && (
                 <Image source={chat} resizeMode="contain" style={{ height: 24, width: 24 }} />
@@ -119,7 +131,7 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: 8,
+    // paddingBottom: 8,
     gap: 10,
     borderRadius: 15,
   },

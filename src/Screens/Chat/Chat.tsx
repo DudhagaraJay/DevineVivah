@@ -22,6 +22,7 @@ import { Typography } from '../../Theme/Typography';
 import Acceptees from './Acceptees';
 import Interests from './Interests';
 import Calls from './Calls';
+import BackHeader from '../../Component/Header/BackHeader';
 
 
 const ChatStatus = [
