@@ -1,15 +1,19 @@
-import { FlatList, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import { FlatList, Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 import { Color } from '../../Theme'
 import { Typography } from '../../Theme/Typography'
 import { FontSize } from '../../Theme/FontSize'
 import { scale } from '../../Theme/ResposiveSize'
+import Smile from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/Entypo';
+
 
 const Reviews = () => {
     const [seletedindex, setSeletedIndex] = useState(0)
 
     const profile = require("../../assets/Image/profile1.png")
     const star = require("../../assets/Image/star.png")
+    const CameraImage = require("../../assets/Image/money.png")
 
     const tik = require("../../assets/Image/smallTik.png")
     const tab = ["Latest", "With Photos", "Detailed Reviews"]
@@ -70,6 +74,7 @@ const Reviews = () => {
 
     return (
         <View style={{ marginBottom: 30, padding: 10 }}>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 10 }}>
             <View style={styles.tab}>
                 {tab.map((item, index) => (
                     <Pressable onPress={() => setSeletedIndex(index)} style={{ borderWidth: 1, borderColor: Color.border, padding: 7, backgroundColor: seletedindex == index ? Color.orange : Color.white, borderRadius: 50, paddingHorizontal: 20 }}>
@@ -77,15 +82,37 @@ const Reviews = () => {
                     </Pressable>
                 ))}
             </View>
+                </ScrollView>
             <View  style={{borderBottomWidth : 1 , borderBottomColor: "#080B111A", marginTop: scale(15), marginBottom: 10}}/>
             <FlatList
                 data={DATA}
                 renderItem={({ item }) => <RenderItem item={item} />}
                 keyExtractor={(item) => item.id}
             />
-            <View>
-                <TextInput placeholder='Make a Comment' />
+             <View style={styles.container}>
+            <View style={styles.inputContainer}>
+                <Pressable>
+                    <Smile name='smile' size={24} color={Color.chatBg} style={styles.icon} />
+                </Pressable>
+                <TextInput
+                    style={styles.textInput}
+                    placeholder='Make a Comment'
+                    placeholderTextColor={Color.chatBg}
+                />
+                <View style={styles.iconContainer}>
+                    <Pressable>
+                        <Icon name='attachment' size={19} color={Color.chatBg} style={styles.icon} />
+                    </Pressable>
+                    <Pressable>
+                        <Icon name='camera' size={19} color={Color.chatBg} style={styles.icon} />
+                    </Pressable>
+                </View>
             </View>
+
+            <Pressable style={styles.sendButton}>
+                <Image source={CameraImage} style={styles.sendIcon} />
+            </Pressable>
+        </View>
         </View>
     )
 }
@@ -97,5 +124,46 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         gap: 5,
-    }
+    },
+    container: {
+        top: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
+        // justifyContent: 'space-between',
+    },
+      inputContainer: {
+        flexDirection: 'row',
+        backgroundColor: Color.inputBg,
+        borderRadius: 13,
+        paddingVertical: 2,
+        paddingHorizontal: 15,
+        flex: 1,
+        alignItems: 'center',
+    },
+    textInput: {
+        flex: 1,
+        color: '#000',
+        fontFamily: "Urbanist-Medium"
+        // marginLeft: 10,
+    },
+    iconContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        // marginLeft: 7,
+    },
+    icon: {
+        marginHorizontal: 5,
+    },
+    sendButton: {
+        marginLeft: 10,
+        backgroundColor: Color.orange,
+        borderRadius: 50,
+        padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    sendIcon: {
+        height: 31,
+        width: 31,
+    },
 })

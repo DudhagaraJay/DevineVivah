@@ -1,14 +1,27 @@
 import { FlatList, Image, Pressable, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import BackHeader from '../../Component/Header/BackHeader'
 import { moderateScale } from '../../Theme/ResposiveSize'
 import { Color } from '../../Theme'
 import Button from '../../Component/Buttons/Button'
 import { Typography } from '../../Theme/Typography'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import DocumentScanner from 'react-native-document-scanner-plugin'
 
 
 const CreationSteps = () => {
+  const [scannedImage, setScannedImage] = useState();
+
+  const scanDocument = async () => {
+    const { scannedImages } = await DocumentScanner.scanDocument()
+    if (scannedImages.length > 0) {
+      setScannedImage(scannedImages[0])
+    }
+  }
+
+  console.log("scannedImage", scannedImage)
+
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
@@ -19,14 +32,14 @@ const CreationSteps = () => {
           <Text style={[styles.text, Typography.body]}>Kindly attach the front, back picture of your national identity card.</Text>
           <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: moderateScale(15) }}>
             <View style={styles.cardContainer}>
-              <Pressable style={styles.redBox}>
+              <Pressable onPress={() => scanDocument()} style={styles.redBox}>
               <MaterialIcons name="add" size={29} color={Color.black} />
               </Pressable>
               <Text style={[styles.cardText, Typography.smallTitle]}>ID Card : front</Text>
             </View>
 
             <View style={styles.cardContainer}>
-              <Pressable style={styles.redBox}>
+              <Pressable onPress={() => scanDocument()} style={styles.redBox}>
               <MaterialIcons name="add" size={29} color={Color.black} />
               </Pressable>
               <Text style={[styles.cardText, Typography.smallTitle]}>ID Card : back</Text>
@@ -52,10 +65,10 @@ export default CreationSteps
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: moderateScale(10)
+    padding: moderateScale(16)
   },
   heading: {
-    marginTop: moderateScale(15)
+    // marginTop: moderateScale(15)
   },
   text: {
     marginTop: moderateScale(20),
@@ -69,7 +82,7 @@ const styles = StyleSheet.create({
 
   cardContainer: {
     position: 'relative',
-    width: moderateScale(178),
+    width: moderateScale(160),
   },
   redBox: {
     backgroundColor: Color.inputBg,

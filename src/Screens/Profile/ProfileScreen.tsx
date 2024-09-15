@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StatusBar, FlatList, Image, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, StatusBar, FlatList, Image, StyleSheet, ScrollView, Dimensions } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { Color } from '../../Theme'
 import { moderateScale, scale } from '../../Theme/ResposiveSize';
@@ -43,7 +43,7 @@ const ProfileScreen = () => {
       id: 1,
       title: 'Edit Profile',
       icon: require('../../assets/Image/setting.png'),
-      screen: ""
+      screen: "ProfileSettings"
     },
 
     {
@@ -90,7 +90,8 @@ const ProfileScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
-      <StatusBar backgroundColor={"white"} barStyle={'dark-content'} />
+      {/* <StatusBar backgroundColor={"white"} barStyle={'dark-content'} /> */}
+      <StatusBar translucent backgroundColor="transparent" />
       <ScrollView>
         <View>
           <FlatList
@@ -153,7 +154,8 @@ const styles = StyleSheet.create({
 
   image: {
     height: moderateScale(340),
-    width: moderateScale(390),
+    // width: moderateScale(390),
+    width: Dimensions.get("screen").width,
     borderBottomRightRadius: 25,
     borderBottomLeftRadius: 25,
     alignSelf: "center"

@@ -1,4 +1,4 @@
-import { FlatList, Image, Pressable, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, FlatList, Image, Pressable, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { Color } from '../Theme'
 import { navigationRef } from '../Navigator/Utils'
@@ -13,7 +13,7 @@ import PersonalDetailTrack from '../Component/Cards/PersonalDetailTrack'
 const AstrologerProfileView = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const flatListRef = useRef(null);
-  const [isExpanded, setIsExpanded] = useState(false)
+    const [isExpanded, setIsExpanded] = useState(false)
 
 
     const tik = require("../assets/Image/smallTik.png")
@@ -26,7 +26,7 @@ const AstrologerProfileView = () => {
 
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
-      };
+    };
     const onViewRef = React.useRef(({ viewableItems }: any) => {
         if (viewableItems.length > 0) {
             setActiveIndex(viewableItems[0].index);
@@ -36,9 +36,10 @@ const AstrologerProfileView = () => {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <StatusBar backgroundColor={Color.white} barStyle={'dark-content'} />
+            {/* <StatusBar backgroundColor={Color.white} barStyle={'dark-content'} /> */}
+            <StatusBar translucent backgroundColor="transparent" />
             <ScrollView>
-                <View style={{ marginTop: "10%" }}>
+                <View style={{}}>
                     <FlatList
                         data={images}
                         ref={flatListRef}
@@ -64,14 +65,16 @@ const AstrologerProfileView = () => {
                             />
                         ))}
                     </View>
+                    <View style={{ position: "absolute", flexDirection: "row", justifyContent: "space-between", top: scale(27), alignItems: "center", width: "100%" }}>
+                        <Pressable style={styles.back} onPress={() => navigationRef.goBack()}>
+                            <Feather name="chevron-left" size={35} color={Color.black} />
+                        </Pressable>
 
-                    <Pressable style={styles.back} onPress={() => navigationRef.goBack()}>
-                        <Feather name="chevron-left" size={35} color={Color.black} />
-                    </Pressable>
+                        <Pressable style={styles.heart} onPress={() => navigationRef.goBack()}>
+                            <AntDesign name="heart" size={25} color={Color.orange} />
+                        </Pressable>
 
-                    <Pressable style={styles.heart} onPress={() => navigationRef.goBack()}>
-                        <AntDesign name="heart" size={25} color={Color.orange} />
-                    </Pressable>
+                    </View>
 
                     <View style={{ gap: 15, marginTop: 10 }}>
                         <View style={{ flexDirection: "row", alignItems: "center", gap: 10, alignSelf: "center" }}>
@@ -82,18 +85,18 @@ const AstrologerProfileView = () => {
                             ={{ color: Color.chatBg }}>/hour</Text></Text>
                         <RequestButton title='Message' />
                         <View style={{ marginHorizontal: moderateScale(15) }}>
-          <Text style={Typography.samll_bold}>Bio:</Text>
-          <Text style={[Typography.title, { color: Color.chatBg, marginTop: 5 }]}>
-            {isExpanded
-              ? "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea velit rerum voluptas, quas dolor odit, possimus reiciendis amet in inventore, adipisci officiis? Animi itaque, repudiandae dolores illum eum mollitia sint."
-              : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea velit rerum voluptas, quas dolor odit"}
-            <Text onPress={toggleExpand} style={[Typography.small, { color: Color.orange }]}> {isExpanded ? "See less..." : "See more..."}</Text>
-          </Text>
-        </View>
+                            <Text style={Typography.samll_bold}>Bio:</Text>
+                            <Text style={[Typography.title, { color: Color.chatBg, marginTop: 5 }]}>
+                                {isExpanded
+                                    ? "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea velit rerum voluptas, quas dolor odit, possimus reiciendis amet in inventore, adipisci officiis? Animi itaque, repudiandae dolores illum eum mollitia sint."
+                                    : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea velit rerum voluptas, quas dolor odit"}
+                                <Text onPress={toggleExpand} style={[Typography.small, { color: Color.orange }]}> {isExpanded ? "See less..." : "See more..."}</Text>
+                            </Text>
+                        </View>
 
                     </View>
 
-                    <PersonalDetailTrack heding='Experience' reviews={true}/>
+                    <PersonalDetailTrack heding='Experience' reviews={true} />
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -104,23 +107,23 @@ export default AstrologerProfileView
 
 const styles = StyleSheet.create({
     image: {
-        height: moderateScale(340),
-        width: moderateScale(390),
+        height: moderateScale(336),
+        width: Dimensions.get("screen").width,
         alignSelf: "center"
     },
     back: {
-        position: "absolute",
+        // position: "absolute",
         backgroundColor: Color.boxBg,
         height: scale(40),
         width: scale(40),
         borderRadius: scale(50),
         margin: scale(15),
-        justifyContent: "center",
+        // justifyContent: "center",
         alignItems: "center",
     },
     heart: {
-        position: "absolute",
-        alignSelf: "flex-end",
+        // position: "absolute",
+        // alignSelf: "flex-end",
         backgroundColor: Color.boxBg,
         height: scale(40),
         width: scale(40),

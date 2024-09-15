@@ -1,87 +1,65 @@
-// import { StyleSheet, Text, View } from 'react-native'
-// import React from 'react'
-
-// const BookPooja = () => {
-//   return (
-//     <View>
-//       <Text>BookPooja</Text>
-//     </View>
-//   )
-// }
-
-// export default BookPooja
-
-// const styles = StyleSheet.create({})
-
-import { Image, Pressable, SafeAreaView, StatusBar, StyleSheet, Text, View, FlatList, ScrollView, TouchableOpacity } from 'react-native';
-import React, { useRef, useState } from 'react';
-
+import { Image, Pressable, SafeAreaView, StatusBar, StyleSheet, Text, View, FlatList } from 'react-native';
+import React from 'react';
 import RightArrow from 'react-native-vector-icons/AntDesign';
 import { Typography } from '../../Theme/Typography';
-import { scale } from '../../Theme/ResposiveSize';
 import { Color } from '../../Theme';
+import { moderateScaleVertical, scale } from '../../Theme/ResposiveSize';
+import { images } from '../../Theme/Image';
 import { FontSize } from '../../Theme/FontSize';
 import BackHeader from '../../Component/Header/BackHeader';
+
 
 
 const poojas = [
   {
     id: '1',
-    dateNumber: '09',
+    dateNumber: '13',
     month: 'Oct',
     poojaTitle: 'Durga Maa Poojan',
     poojaDate: '09 Sep',
   },
   {
     id: '2',
-    dateNumber: '15',
+    dateNumber: '13',
     month: 'Oct',
     poojaTitle: 'Durga Maa Poojan',
     poojaDate: '15 Oct',
   },
   {
     id: '3',
-    dateNumber: '21',
+    dateNumber: '13',
     month: 'Oct',
     poojaTitle: 'Durga Maa Poojan',
     poojaDate: '21 Oct',
   },
   {
     id: '4',
-    dateNumber: '31',
+    dateNumber: '13',
     month: 'Nov',
     poojaTitle: 'Durga Maa Poojan',
-    poojaDate: '32 Nov',
+    poojaDate: '31 Nov',
   },
 ];
 
-const tab = [
-  {name: "All", icon: require('../../assets/Image/love.png')},
-  {name: "Love", icon: require('../../assets/Image/love.png')},
-  {name: "Marriage", icon: require('../../assets/Image/marriageicon.png')},
-  {name: "Carrier", icon: require('../../assets/Image/carrier.png')},
-]
-
 const BookPooja = () => {
-  const [selectedTab, setSelectedTab] = useState(null);
-  const scrollRef = useRef(null);
-  const PoojaImage = require('../../assets/Image/BookPooja.jpg');
-
-
-  const handlePress = (name: string) => {
-    setSelectedTab(name); 
-  };
   const renderPoojaItem = ({ item, index }: any) => (
     <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 20 }}>
 
-      <View style={{ alignSelf: "center", alignItems: "center", marginRight: 5 }}>
-        <Text style={[styles.DateNumber, Typography.smallTitle]}>{item.dateNumber}</Text>
-        <Text style={[styles.month, Typography.small]}>{item.month}</Text>
-        {/* <View style={[styles.VerticalLine, { height: scale(80) }]}></View> */}
+      <View style={[styles.dateContainer, index > 0 && styles.otherDateContainer]}>
+        <Text style={[styles.DateNumber, index > 0 && styles.otherDateNumber]}>
+          {item.dateNumber}
+        </Text>
+        <Text style={[styles.month, index > 0 && styles.otherMonth]}>
+          {item.month}
+        </Text>
+
+        {index < poojas.length - 1 && (
+          <View style={[styles.verticalLine, { backgroundColor: index === 0 ? Color.orange : Color.chatBg }]} />
+        )}
       </View>
 
-      <View style={{ flexDirection: 'column', justifyContent: "space-between", backgroundColor: Color.inputBg, borderRadius: 8, marginLeft: 5 }}>
-        <Image source={PoojaImage} style={styles.PoojaImage} />
+      <View style={{ justifyContent: "space-between", backgroundColor: Color.inputBg, borderRadius: 8, marginLeft: 5 }}>
+        <Image source={images.bookPoojaImage} style={styles.PoojaImage} />
         <View style={{ flexDirection: 'row', justifyContent: "space-between", marginLeft: 15, marginVertical: 8 }}>
           <View style={{ flexDirection: 'column', justifyContent: "space-between", alignItems: "flex-start", }}>
             <Text style={[styles.DurgaMa, Typography.smallTitle]}>{item.poojaTitle}</Text>
@@ -99,34 +77,13 @@ const BookPooja = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
       <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
       <BackHeader centerTitle='Book a Pooja' />
-      <View style={{ padding: scale(16) }}>
-      <ScrollView
-      horizontal={true} 
-      showsHorizontalScrollIndicator={false} 
-      ref={scrollRef} 
-      contentContainerStyle={styles.scrollContainer}
-    >
-      {tab.map((item, index) => (
-        <TouchableOpacity  onPress={() => handlePress(item.name)} key={index} style={[styles.tabItem, {backgroundColor: selectedTab === item.name ? Color.orange :  Color.white}]}>
-         <Image
-            source={item.icon}
-            resizeMode='contain'
-            style={[
-              styles.icon,
-              {
-                tintColor: selectedTab === item.name ? Color.white :  Color.orange, 
-              },
-            ]}
-          />
-          <Text style={[Typography.samll_bold, {color: selectedTab === item.name ? Color.white :  Color.orange}]}>{item.name}</Text>
-        </TouchableOpacity>
-      ))}
-    </ScrollView>
+      <View style={{ padding: scale(16), marginBottom: moderateScaleVertical(70)}}>
         <FlatList
           data={poojas}
           renderItem={renderPoojaItem}
           keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
+          
         />
       </View>
     </SafeAreaView>
@@ -143,10 +100,22 @@ const styles = StyleSheet.create({
     fontSize: FontSize.Font14,
     textAlign: "center",
     paddingHorizontal: 8,
-    paddingVertical: 4,
+    paddingVertical: 6,
+    // padding:7,
+    textAlignVertical: 'center',
+  },
+  otherDateNumber: {
+    backgroundColor: Color.white,
+    color: Color.black,
+    borderWidth: 1,
+    borderColor: Color.chatBg,
   },
   month: {
-    fontSize: FontSize.Font10,
+    fontSize: FontSize.Font14,
+    marginTop: 5,
+  },
+  otherMonth: {
+    color: Color.black,
   },
   PoojaImage: {
     height: scale(170),
@@ -158,29 +127,23 @@ const styles = StyleSheet.create({
     color: Color.black,
     fontSize: FontSize.Font16,
   },
-  VerticalLine: {
-    width: 1.5,
-    backgroundColor: Color.orange,
-    marginVertical: scale(4),
+  verticalLine: {
+    position: 'absolute',
+    height: '78%',
+    width: 2,
+    left: '54%',
+    top: '63%',
+    transform: [{ translateY: -85 }],
   },
-  scrollContainer: {
-    flexDirection: "row", 
+  dateContainer: {
+    alignSelf: "center",
+    alignItems: "center",
+    // marginRight: 10,
   },
-  tabItem: {
-    flexDirection: "row", 
-    alignItems: "center", 
-    padding: 7,
-    paddingHorizontal: 10,
-    marginBottom: 15,
-    marginRight: 7,
-    borderRadius: 50, 
-    borderWidth: 1, 
-    borderColor: Color.orange, 
-  },
-  icon: {
-    width:  scale(18), 
-    height: scale(18), 
-    marginRight: 5, 
-    
+  otherDateContainer: {
+    backgroundColor: Color.white,
+    borderColor: Color.chatBg,
+    borderRadius: 50,
+    padding: 4,
   },
 });

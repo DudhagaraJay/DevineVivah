@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, View, Text, Image, StyleSheet } from "react-native";
+import { FlatList, View, Text, Image, StyleSheet, Dimensions } from "react-native";
 import { height, moderateScale, width } from "../../Theme/ResposiveSize";
 import { Color } from "../../Theme";
 import { Typography } from "../../Theme/Typography";
@@ -84,7 +84,8 @@ const styles = StyleSheet.create({
  
   imageStyle: {
     height: moderateScale(340),
-    width: moderateScale(345),
+    // width: moderateScale(345),
+    width: Dimensions.get("screen").width - 8,
     borderRadius: 6,
   },
   tagContainer: {

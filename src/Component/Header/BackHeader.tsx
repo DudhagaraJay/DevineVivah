@@ -11,6 +11,8 @@ interface Back {
   rightTitle?: string
   onpress?: Function
   leftTitle?: string
+  rightBtn?: string
+  onpressButton?: Function
 }
 const BackHeader = (Props: Back) => {
   const back = require("../../assets/Image/leftarrow.png")
@@ -39,6 +41,10 @@ const BackHeader = (Props: Back) => {
             {Props.centerTitle}
           </Text>}
         <Text onPress={() => Props.onpress ? Props.onpress() : null} style={[Typography.samll_bold, styles.rightTitle]}>{Props.rightTitle}</Text>
+        {Props.rightBtn &&  <Pressable onPress={() => Props.onpressButton ? Props.onpressButton() : null} style={{position: "absolute", right: moderateScale(16), backgroundColor: Color.orange, padding: 10, borderRadius: 8}}>
+        <Text  style={[Typography.smallText, styles.rightTitle, {color:Color.white, lineHeight: 20}]}>{Props.rightBtn}</Text>
+        </Pressable>}
+       
       </View>
     </View>
   )
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
 
     padding: 10,
-    marginTop: 10,
+    marginTop: scale(25),
   },
   container: {
     borderRadius: moderateScale(50),

@@ -2,7 +2,6 @@
 import { StyleSheet } from "react-native";
 import { FontSize } from "./FontSize";
 import { Color } from ".";
-import { moderateScale } from "./ResposiveSize";
 
 
 export const Typography = StyleSheet.create({

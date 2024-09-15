@@ -1,17 +1,3 @@
-// import { StyleSheet, Text, View } from 'react-native'
-// import React from 'react'
-
-// const Location = () => {
-//   return (
-//     <View>
-//       <Text>Location</Text>
-//     </View>
-//   )
-// }
-
-// export default Location
-
-
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { Color } from '../../Theme'

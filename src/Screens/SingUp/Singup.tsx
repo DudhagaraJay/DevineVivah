@@ -63,7 +63,7 @@ const Singup = () => {
                         value={confirmpassword}
                         onChangeText={setConfirmPassword}
                     />
-                    <View style={{flexDirection: "row", alignItems: "center", gap: 5}}>
+                    <View style={{flexDirection: "row", alignItems: "center", marginHorizontal: 16}}>
                         <CheckBox checkstyle />
                         <Text onPress={() => navigate("ForgotPassword", {})} style={[styles.forget, Typography.small]}>
                             <Text style={{ color: Color.chatBg }}>I agree to the</Text>

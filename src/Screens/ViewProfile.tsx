@@ -1,4 +1,4 @@
-import { FlatList, Image, Pressable, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Dimensions, FlatList, Image, Pressable, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { Color } from '../Theme';
 import { moderateScale, scale } from '../Theme/ResposiveSize';
@@ -69,7 +69,7 @@ const ViewProfile = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const flatListRef = useRef(null);
   const tik = require("../assets/Image/smallTik.png")
-  
+
   const scrollRef = useRef<ScrollView>(null);
 
 
@@ -105,7 +105,8 @@ const ViewProfile = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
-      <StatusBar backgroundColor={Color.white} barStyle={'dark-content'} />
+      {/* <StatusBar backgroundColor={Color.white} barStyle={'dark-content'} /> */}
+      <StatusBar translucent backgroundColor="transparent" />
       <ScrollView
         ref={scrollRef}
         contentContainerStyle={styles.scroll}
@@ -113,7 +114,7 @@ const ViewProfile = () => {
         bouncesZoom={true}
       >
 
-        <View style={{ marginTop: "10%" }}>
+        <View style={{}}>
           <FlatList
             data={images}
             ref={flatListRef}
@@ -139,14 +140,15 @@ const ViewProfile = () => {
               />
             ))}
           </View>
+          <View style={{ position: "absolute", flexDirection: "row", justifyContent: "space-between", top: scale(27), alignItems: "center", width: "100%" }}>
+            <Pressable style={styles.back} onPress={() => navigationRef.goBack()}>
+              <Feather name="chevron-left" size={35} color={Color.black} />
+            </Pressable>
 
-          <Pressable style={styles.back} onPress={() => navigationRef.goBack()}>
-            <Feather name="chevron-left" size={35} color={Color.black} />
-          </Pressable>
-
-          <Pressable style={styles.heart} onPress={() => navigationRef.goBack()}>
-            <AntDesign name="heart" size={25} color={Color.orange} />
-          </Pressable>
+            <Pressable style={styles.heart} onPress={() => navigationRef.goBack()}>
+              <AntDesign name="heart" size={25} color={Color.orange} />
+            </Pressable>
+          </View>
         </View>
 
         <View style={{ gap: 15, marginTop: 10 }}>
@@ -155,7 +157,10 @@ const ViewProfile = () => {
             <Image source={tik} style={{ height: 28, width: 28 }} />
           </View>
           <RequestButton title='Request' backgroundColor={Color.chatBg} />
-          <RequestButton title='Shortlist' />
+          <View style={{flexDirection: "row", width: "100%", flex: 1}}>
+            <RequestButton title='Reject' backgroundColor='#E01820' />
+            <RequestButton title='Shortlist'  backgroundColor='#208B28'/>
+          </View>
           <FlatList
             data={data}
             renderItem={renderItem}
@@ -188,12 +193,13 @@ const styles = StyleSheet.create({
     rowGap: 10,
   },
   image: {
-    height: moderateScale(340),
-    width: moderateScale(370),
+    height: moderateScale(336),
+    // width: moderateScale(370),
+    width: Dimensions.get("screen").width
     // alignSelf: "center"
   },
   back: {
-    position: "absolute",
+    // position: "absolute",
     backgroundColor: Color.boxBg,
     height: scale(40),
     width: scale(40),
@@ -203,8 +209,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   heart: {
-    position: "absolute",
-    alignSelf: "flex-end",
+    // position: "absolute",
+    // alignSelf: "flex-end",
     backgroundColor: Color.boxBg,
     height: scale(40),
     width: scale(40),

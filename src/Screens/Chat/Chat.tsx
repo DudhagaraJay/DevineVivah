@@ -22,7 +22,8 @@ import { Typography } from '../../Theme/Typography';
 import Acceptees from './Acceptees';
 import Interests from './Interests';
 import Calls from './Calls';
-import BackHeader from '../../Component/Header/BackHeader';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { navigate } from '../../Navigator/Utils';
 
 
 const ChatStatus = [
@@ -72,6 +73,9 @@ const ChatStatus = [
 const ChatScreen = () => {
     const [selectedTab, setSelectedTab] = useState('Acceptees');
 
+    const profile = require('../../assets/Image/avatar.png')
+    const notification = require('../../assets/Image/bell.png')
+
     const renderTabContent = () => {
         switch (selectedTab) {
             case 'Acceptees':
@@ -106,7 +110,21 @@ const ChatScreen = () => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
             <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
-            <View style={{ padding: moderateScale(16) }}>
+            <View style={{ padding: moderateScale(16), marginTop: moderateScale(30,), }}>
+                <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 15}}>
+                <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+                    <Image source={profile} style={{ height: scale(45), width: scale(45), borderRadius: scale(50) }} />
+                    <Text style={Typography.samll_bold}>Good Evening, Joe</Text>
+                </View>
+                <View>
+                    <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+                        <Ionicons name="search-outline" size={27} color={Color.black} />
+                        <Pressable onPress={() => navigate("Notifacations", {})}>
+                        <Image source={notification} style={{ height: scale(27), width: scale(24) }} tintColor="black" />
+                        </Pressable>
+                    </View>
+                </View>
+                </View>
                 <Text style={[Typography.large_headings, { fontSize: FontSize.Font24 }]}>Online Matches (22)</Text>
                 <Text style={[Typography.small, { fontSize: FontSize.Font14, color: Color.chatBg }]}>Initiate a chat with your matches to get faster response.</Text>
             </View>

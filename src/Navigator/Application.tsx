@@ -48,6 +48,8 @@ import ChatScreen from '../Screens/Chat/Chat';
 import LiveChat from '../Screens/Chat/LiveChat';
 import OrderDetails from '../Screens/MyOrders/OrderDetails';
 import BookPooja from '../Screens/Pooja/BookPooja';
+import MyTickers from '../Screens/Help/MyTickers';
+import ProfileSettings from '../Screens/Settings/ProfileSettings';
 
 
 
@@ -108,6 +110,8 @@ const Application = () => {
         <Stack.Screen name="SelectPaymentMethod" component={SelectPaymentMethod} />
         <Stack.Screen name="Orderplaced" component={Orderplaced} />
         <Stack.Screen name="BookPooja" component={BookPooja} />
+        <Stack.Screen name="MyTickers" component={MyTickers} />
+        <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
 
 
 

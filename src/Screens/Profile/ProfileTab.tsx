@@ -20,7 +20,7 @@ const ProfileTabCard = (Props: Details) => {
     const renderItem = ({ item }) => (
         <Pressable onPress={() => item.screen && navigate(item.screen,{})} style={styles.itemContainer}>
             <View style={styles.textImageContainer}>
-                <Image source={item.icon} style={styles.imageStyle} />
+                <Image source={item.icon} style={styles.imageStyle} resizeMode='contain' />
                 <Text style={[Typography.smallText, { fontSize: FontSize.Font18, lineHeight: 22, marginLeft: moderateScale(13), color: Color.black }]}>{item.title}</Text>
             </View>
             <RightIcon name="chevron-right" size={30} color="#292D32" />

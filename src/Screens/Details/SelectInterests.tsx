@@ -4,21 +4,22 @@ import BackHeader from '../../Component/Header/BackHeader'
 import { Color } from '../../Theme'
 import { moderateScale, scale } from '../../Theme/ResposiveSize'
 import { Typography } from '../../Theme/Typography'
+import { images } from '../../Theme/Image'
 
 
 const data = [
-  { id: 1, icon: require("../../assets/Image/carrier.png"), title: "Reading" },
-  { id: 2, icon: require("../../assets/Image/carrier.png"), title: "Photography" },
-  { id: 3, icon: require("../../assets/Image/carrier.png"), title: "Gaming" },
-  { id: 4, icon: require("../../assets/Image/carrier.png"), title: "Music" },
-  { id: 5, icon: require("../../assets/Image/carrier.png"), title: "Travel" },
-  { id: 6, icon: require("../../assets/Image/carrier.png"), title: "Painting" },
-  { id: 7, icon: require("../../assets/Image/carrier.png"), title: "Politics" },
-  { id: 8, icon: require("../../assets/Image/carrier.png"), title: "Charity" },
-  { id: 9, icon: require("../../assets/Image/carrier.png"), title: "Cooking" },
-  { id: 10, icon: require("../../assets/Image/carrier.png"), title: "Pets" },
-  { id: 11, icon: require("../../assets/Image/carrier.png"), title: "Fashion" },
-  { id: 12, icon: require("../../assets/Image/carrier.png"), title: "Sports" },
+  { id: 1, icon: images.ReadingIcon, title: "Reading" },
+  { id: 2, icon: images.PhotographyIcon, title: "Photography" },
+  { id: 3, icon: images.GamingIcon, title: "Gaming" },
+  { id: 4, icon: images.MusicIcon, title: "Music" },
+  { id: 5, icon: images.TravelIcon, title: "Travel" },
+  { id: 6, icon: images.PaintingIcon, title: "Painting" },
+  { id: 7, icon: images.PoliticsIcon, title: "Politics" },
+  { id: 8, icon: images.CharityIcon, title: "Charity" },
+  { id: 9, icon: images.CookingIcon, title: "Cooking" },
+  { id: 10, icon: images.PetsIcon, title: "Pets" },
+  { id: 11, icon: images.FashionIcon, title: "Fashion" },
+  { id: 12, icon: images.SportsIcon, title: "Sports" },
 ];
 
 const SelectInterests = () => {
@@ -52,7 +53,7 @@ const SelectInterests = () => {
               onLongPress={() => toggleSelectItem(item.id)}
               delayLongPress={200}
             >
-              <Image style={[styles.icon, { tintColor: iconTintColor }]} source={item.icon} />
+              <Image style={[styles.icon, { tintColor: iconTintColor }]} resizeMode='contain' source={item.icon} />
               <Text style={[textStyle, Typography.smallTitle]}>{item.title}</Text>
             </TouchableOpacity>
           );
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
         borderColor: Color.border,
         flexDirection: "row",
         alignItems: "center",
-        gap: 10,
+        gap: 7,
         justifyContent: 'center',
       },
       threeColumn: {
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
         marginRight: 7,
         flexDirection: "row",
         alignItems: "center",
-        gap: 10,
+        gap: 7,
         borderRadius: 50,
         borderWidth: 1,
         borderColor: Color.border,

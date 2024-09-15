@@ -23,6 +23,7 @@ export default RequestButton
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         height: scale(40),
         marginHorizontal: scale(15),
         borderRadius: moderateScale(7),

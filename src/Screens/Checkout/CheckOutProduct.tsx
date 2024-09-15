@@ -9,6 +9,7 @@ import { Typography } from '../../Theme/Typography';
 import { FontSize } from '../../Theme/FontSize';
 import { moderateScale, moderateScaleVertical } from '../../Theme/ResposiveSize';
 import { navigate } from '../../Navigator/Utils';
+import { images } from '../../Theme/Image';
 
 interface CheckOut {
     status?: string
@@ -22,7 +23,7 @@ const CheckOutProduct = (Props: CheckOut) => {
             {Props.status && <Text style={[Typography.small,{color: Color.chatBg}]}>{Props.date}</Text>}
             <Pressable onPress={() => navigate("OrderDetails", {})} style={styles.card}>
                 <View style={styles.row}>
-                    <Image source={product} style={styles.productImage} />
+                    <Image source={images.jeweleryImage} style={styles.productImage} />
                     <View style={styles.productDetails}>
                         <Text style={[Typography.samll_bold, { color: Color.black, fontSize: FontSize.Font20 }]}>Product Name</Text>
                         <View style={styles.categoryRow}>
@@ -101,9 +102,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     productImage: {
-        width: 100,
-        height: 100,
-        resizeMode: 'contain',
+        width: moderateScale(99),
+        height: moderateScale(100),
+        borderRadius: 8
     },
     productDetails: {
         flex: 1,

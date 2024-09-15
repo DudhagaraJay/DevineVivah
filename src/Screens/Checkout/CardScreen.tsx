@@ -8,6 +8,7 @@ import { Typography } from '../../Theme/Typography'
 import CheckBox from '../../Component/CheckBox/CheckBox'
 import Sign from 'react-native-vector-icons/AntDesign'
 import { FontSize } from '../../Theme/FontSize'
+import { images } from '../../Theme/Image'
 
 const CardScreen = ({route}: any) => {
     const { item } = route.params
@@ -30,8 +31,8 @@ console.log("card add item=>>>>", item)
         <BackHeader centerTitle='Card' rightTitle='CartCheckout' onpress={() => navigate("Checkout", {})} />
         <View style={styles.cartContainer}>
         <View style={styles.itemRow}>
-          <CheckBox />
-          <Image source={Product} style={styles.productImage} />
+          <CheckBox  />
+          <Image source={images.jeweleryImage} style={styles.productImage} />
           <View style={styles.productDetails}>
             <View style={styles.productText}>
               <Text style={[Typography.samll_bold,{color: Color.black, fontSize: FontSize.Font20}]}>Product Name</Text>
@@ -94,8 +95,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   productImage: {
-    width: 99,
-    height: 99,
+    width: moderateScale(99),
+    height: moderateScale(99),
+    borderRadius: 7
   },
   productDetails: {
     flexDirection: 'column',

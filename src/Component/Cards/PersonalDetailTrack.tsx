@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, StyleSheet, LayoutChangeEvent, Image } from 'react-native';
+import { View, Text, FlatList, StyleSheet, LayoutChangeEvent, Image, Pressable, TextInput } from 'react-native';
 import { moderateScale, scale } from '../../Theme/ResposiveSize';
 import { Color } from '../../Theme';
 import { Typography } from '../../Theme/Typography';
@@ -136,6 +136,7 @@ const PersonalDetailTrack = (Props: IPersonalTrack) => {
         <View>
           <Text style={[Typography.samll_bold,{color: Color.black, marginLeft: 15}]}>Reviews</Text>
           <Reviews />
+         
         </View>
       }
 
@@ -192,7 +193,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderRadius: 50,
     gap: 10
-  }
+  },
+ 
 });
 
 export default PersonalDetailTrack;

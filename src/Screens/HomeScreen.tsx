@@ -1,8 +1,8 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { Color } from '../Theme'
 import HeaderCard from '../Component/Header/HeaderCard'
-import { moderateScale } from '../Theme/ResposiveSize'
+import { moderateScale, scale } from '../Theme/ResposiveSize'
 import { Typography } from '../Theme/Typography'
 import { FontSize } from '../Theme/FontSize'
 import YourMatches from '../Component/Cards/YourMatches'
@@ -10,6 +10,8 @@ import CategoryCard from '../Component/Cards/CategoryCard'
 import FamousAstrologers from '../Component/Cards/FamousAstrologers'
 import SuggestedMatches from '../Component/Cards/SuggestedMatches'
 import Shortlisted from './TopTab/Shortlisted'
+import LinearGradient from 'react-native-linear-gradient'
+import WhiteButton from '../Component/Buttons/WhiteButton'
 
 const HomeScreen = () => {
   const [selected, setSelected] = useState(0);
@@ -17,6 +19,8 @@ const HomeScreen = () => {
   const scrollViewRef = useRef(null);
 
   console.log("selected", selected)
+
+  const addphoto = require("../assets/Image/addphoto.png")
 
   const handlePress = (index: any) => {
     setSelected(index);
@@ -55,13 +59,29 @@ const HomeScreen = () => {
             <>
               <YourMatches />
               <CategoryCard />
+
+              <View style={{ marginTop: moderateScale(10), }}>
+                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={Color.gradient} style={styles.linearGradient}>
+                  <View style={{ padding: 15, flexDirection: "row", gap: moderateScale(20) }}>
+                    <Image source={addphoto} resizeMode='contain' style={{ height: scale(160), width: scale(120), alignItems: "center", }} />
+                    <View style={{ justifyContent: "center", }}>
+                      <Text style={[Typography.samll_bold, { fontSize: FontSize.Font24, lineHeight: 30, color: Color.white }]}>
+                        Add Photos
+                      </Text>
+                      <Text style={[Typography.small, { maxWidth: moderateScale(200), color: Color.white }]}>Add more photos to get more reach!!!</Text>
+                      <WhiteButton title="Add Photos" mainStyle={{ marginTop: scale(15) }} />
+                    </View>
+                  </View>
+                </LinearGradient>
+              </View>
+
               <FamousAstrologers />
               <SuggestedMatches />
             </>
           ) : null}
 
-          {selected === 2 ? (           
-              <Shortlisted />
+          {selected === 2 ? (
+            <Shortlisted />
           ) : null}
 
 
@@ -99,5 +119,10 @@ const styles = StyleSheet.create({
     width: moderateScale(81),
     borderRadius: 6,
   },
+  linearGradient: {
+    height: scale(194),
+    borderRadius: 14,
+    // marginHorizontal: 10
+  }
 
 })

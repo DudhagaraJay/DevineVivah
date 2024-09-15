@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         backgroundColor: Color.inputBg,
         paddingHorizontal: moderateScale(15),
         justifyContent: "center",
-        padding: moderateScale(12),
+        padding: moderateScale(15),
     },
     dropdownList: {
         borderWidth: 1,
@@ -78,7 +78,8 @@ const styles = StyleSheet.create({
         color: '#333',
     },
     item: {
-        padding: moderateScale(15),
+        padding: moderateScale(5),
+        paddingHorizontal:  moderateScale(20)
     },
     icon: {
         position: "absolute",

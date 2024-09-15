@@ -10,6 +10,7 @@ const AgeRange = () => {
   const [value, setValue] = useState(18);
   const [thumbX, setThumbX] = useState(0);
 
+  console.log("value", value)
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onPanResponderMove: (_, gestureState) => {

@@ -1,19 +1,3 @@
-// import { StyleSheet, Text, View } from 'react-native'
-// import React from 'react'
-
-// const Preferences = () => {
-//   return (
-//     <View>
-//       <Text>Preferences</Text>
-//     </View>
-//   )
-// }
-
-// export default Preferences
-
-// const styles = StyleSheet.create({})
-
-
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { Color } from '../../Theme'

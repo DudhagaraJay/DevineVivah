@@ -77,7 +77,7 @@ const Calls = () => {
         <View style={styles.chatRow}>
           <Image source={ProfileImage} style={styles.profileImage} />
           <View style={styles.chatDetails}>
-            <Text style={[styles.userName, Typography.smallTitle]}>
+            <Text style={[Typography.smallTitle, {letterSpacing: 0}]}>
               {item.name}
             </Text>
             {item.time && (
@@ -151,9 +151,7 @@ const styles = StyleSheet.create({
     // flex: 1,
   },
   userName: {
-    color: Color.black,
-    fontSize: FontSize.Font18,
-    fontWeight: 'bold',
+   
   },
   infoText: {
     color: Color.chatBg,
