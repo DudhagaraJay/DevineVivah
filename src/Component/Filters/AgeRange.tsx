@@ -10,7 +10,6 @@ const AgeRange = () => {
   const [value, setValue] = useState(18);
   const [thumbX, setThumbX] = useState(0);
 
-  console.log("value", value)
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onPanResponderMove: (_, gestureState) => {
@@ -30,19 +29,20 @@ const AgeRange = () => {
 
       <Text style={[styles.ageRangeText, Typography.smallTitle]}>Age Range</Text>
 
-      <View style={styles.slider} onLayout={(event) => setSliderWidth(event.nativeEvent.layout.width)} >
-        <View style={[styles.track, { width: thumbX }]} />
-        <View style={[styles.thumb, { left: thumbX - 7.5 }]}   {...panResponder.panHandlers} />
-      </View>
-      
-      <View style={styles.rangeLabels}>
-        <Text style={[styles.rangeText, Typography.smallTitle]}>18</Text>
+      <View style={styles.sliderContainer}>
+        <View style={styles.slider} onLayout={(event) => setSliderWidth(event.nativeEvent.layout.width - 10)}>
+          <View style={[styles.track, { width: thumbX }]} />
+          <View style={[styles.thumb, { left: thumbX - 7.5 }]} {...panResponder.panHandlers} />
+        </View>
+
+        {/* Positioning 18 at the far left and 40 at the far right */}
+        <Text style={[styles.rangeText, styles.leftRangeText]}>18</Text>
+        <Text style={[styles.rangeText, styles.rightRangeText]}>40</Text>
+        
         <View style={[styles.valueLabel, { left: thumbX - 9 }]}>
           <Text style={[styles.rangeText, Typography.smallTitle]}>{value}</Text>
         </View>
-        <Text style={[styles.rangeText, Typography.smallTitle]}>40</Text>
       </View>
-
     </View>
   );
 };
@@ -54,12 +54,15 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: scale(16),
   },
+  sliderContainer: {
+    position: 'relative',
+    marginVertical: scale(15),
+  },
   slider: {
     height: 5,
     justifyContent: 'center',
     backgroundColor: Color.inputBg,
     borderRadius: 20,
-    marginVertical: scale(15),
   },
   track: {
     position: 'absolute',
@@ -73,13 +76,6 @@ const styles = StyleSheet.create({
     height: scale(16),
     backgroundColor: '#FF5A60',
     borderRadius: 15,
-    // borderWidth: 1,
-    // borderColor: Color.black,
-    // padding: 7,
-  },
-  rangeLabels: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
   },
   rangeText: {
     fontSize: FontSize.Font16,
@@ -91,6 +87,19 @@ const styles = StyleSheet.create({
   },
   valueLabel: {
     position: 'absolute',
+    top: 10, 
+  },
+  leftRangeText: {
+    position: 'absolute',
+    left: 0,
+    top: 5
+   
+  },
+  rightRangeText: {
+    position: 'absolute',
+    right: 0,
+    top: 5
+    
   },
 });
 

@@ -93,7 +93,7 @@ const ProfileScreen = () => {
       {/* <StatusBar backgroundColor={"white"} barStyle={'dark-content'} /> */}
       <StatusBar translucent backgroundColor="transparent" />
       <ScrollView>
-        <View>
+        
           <FlatList
             data={images}
             ref={flatListRef}
@@ -142,7 +142,7 @@ const ProfileScreen = () => {
             ))}
           </View>
           <ProfileTabCard Data={TabName} />
-        </View>
+      
       </ScrollView>
     </SafeAreaView>
   )

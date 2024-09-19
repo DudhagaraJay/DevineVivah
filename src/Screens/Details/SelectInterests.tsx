@@ -5,6 +5,8 @@ import { Color } from '../../Theme'
 import { moderateScale, scale } from '../../Theme/ResposiveSize'
 import { Typography } from '../../Theme/Typography'
 import { images } from '../../Theme/Image'
+import Button from '../../Component/Buttons/Button'
+import { navigate } from '../../Navigator/Utils'
 
 
 const data = [
@@ -86,7 +88,7 @@ const SelectInterests = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
     <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
     <BackHeader />
-    <View style={{ padding: 16 }}>
+    <View style={{ padding: 16, }}>
          <Text style={[Typography.main_heading, { textAlign: "center" }]}>Select Interests</Text>
          <Text style={[styles.hedingtext, Typography.body]}>
            Tell us what piques your curiosity and passions
@@ -94,6 +96,7 @@ const SelectInterests = () => {
        </View>
        <ScrollView>
          {groupedData.map((row, index) => renderRow(row, index % 2 === 0))}
+         <Button title='Save' onPress={() => navigate("MainNavigator", {})}mainStyle={{marginHorizontal: moderateScale(16),}}/>
        </ScrollView>
 </SafeAreaView>
   )
@@ -104,6 +107,7 @@ export default SelectInterests
 const styles = StyleSheet.create({
   hedingtext: {
         marginTop: moderateScale(20),
+        
         color: Color.chatBg,
         textAlign: "center",
       },

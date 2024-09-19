@@ -57,13 +57,13 @@ const NavigationTab = ({ state, descriptors, navigation }: any) => {
               {label === "Home" && (
                 <Image
                   source={isFocused ? images.HomeBGIcon : images.HomeIcon}
-                  style={{ height: 25, width: 25 }}
+                  style={{ height: scale(25), width: scale(25) }}
                 />
               )}
               {label === "Store" && (
                 <Image
                   source={isFocused ? images.storeBGIcon : images.storeIcon}
-                  style={{ height: 24, width: 24 }}
+                  style={{ height: scale(24), width: scale(24) }}
                 />
               )}
               {label === "Book Pooja" && (
@@ -90,13 +90,13 @@ const NavigationTab = ({ state, descriptors, navigation }: any) => {
               {label === "Chats" && (
                 <Image
                   source={isFocused ? images.ChatBGIcon : images.ChatIcon}
-                  style={{ height: 23, width: 23 }}
+                  style={{ height: scale(23), width: scale(23) }}
                 />
               )}
               {label === "Profile" && (
                 <Image
                   source={isFocused ? images.ProfileBGIcon : images.ProfileIcon}
-                  style={{ height: 23, width: 20 }}
+                  style={{ height: scale(23), width: scale(20) }}
                 />
               )}
               {isFocused && (

@@ -41,7 +41,7 @@ export default PrivacyCard
 
 const styles = StyleSheet.create({
     mainContainer: {
-        marginHorizontal: 15,
+        marginHorizontal: 16,
         backgroundColor: Color.boxBg,
         height: scale(153),
         borderRadius: 18,
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        padding: 10,
     },
     itemColumn: {
         alignItems: 'center',

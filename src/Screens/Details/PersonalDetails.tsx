@@ -62,7 +62,7 @@ const PersonalDetails = () => {
             />
              <InputDropdown
               placeholder='0'
-              title='Your Weight(oz)'
+              title='Your Weight(Kg)'
               nameStyle
             />
           </View>

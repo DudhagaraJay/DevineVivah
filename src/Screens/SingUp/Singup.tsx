@@ -49,8 +49,10 @@ const Singup = () => {
                         onChangeText={setFullName}
                     />
                     <NameInput
-                        placeholder='Email'
+                        placeholder='Phone No'
                         value={email}
+                        keyboardType="numeric"
+                        maxLength={10}
                         onChangeText={setEmail}
                     />
                     <NameInput

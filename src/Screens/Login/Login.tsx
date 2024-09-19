@@ -26,9 +26,11 @@ const Login = () => {
                 <View style={styles.container}>
                     <Text style={[styles.heading, Typography.main_heading]}>Welcome back! Glad to see you, Again!</Text>
                     <NameInput
-                        placeholder='Enter your Email'
+                        placeholder='Phone No'
                         value={email}
                         onChangeText={setEmail}
+                        keyboardType="numeric"
+                        maxLength={10}
                     />
                     <NameInput
                         placeholder='Enter Your Password '

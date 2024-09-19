@@ -36,7 +36,7 @@ const ShippingAddressCard = (Props: ShippingCard) => {
           {!Props.ShowEdit ?
             <Image source={right} style={{ height: 15, width: 15, position: "absolute", alignSelf: "flex-end",  tintColor: Color.orange }} resizeMode='contain' />
             :
-            <View style={{ flexDirection: "row", position: "absolute", alignSelf: "flex-end", gap: 5, alignItems: "center" }}>
+            <View style={{ flexDirection: "row", position: "absolute", alignSelf: "flex-end", gap: 5,  alignItems: "center" }}>
               <FontAwesome name='edit' size={20} color={Color.orange}    />
               <Text style={[Typography.smallText, { fontSize: FontSize.Font18, lineHeight: 22, color: Color.orange }]}>Edit</Text>
             </View>
